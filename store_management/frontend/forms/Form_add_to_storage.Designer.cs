@@ -170,6 +170,7 @@ namespace store_management.frontend.forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form_add_product";
             this.Text = "Add Product";
+            this.Load += new System.EventHandler(this.Form_add_product_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbox_quanity)).EndInit();

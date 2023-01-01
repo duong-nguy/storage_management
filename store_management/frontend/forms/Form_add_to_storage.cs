@@ -32,5 +32,10 @@ namespace store_management.frontend.forms
             Utility.close_open_form(this, new Form_product_info());
 
         }
+
+        private void Form_add_product_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
