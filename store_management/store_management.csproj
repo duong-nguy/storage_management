@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="backend\abstractions\DATABASE.cs" />
     <Compile Include="backend\abstractions\PRODUCT.cs" />
-    <Compile Include="backend\abstractions\Product_factory.cs" />
+    <Compile Include="backend\Product_factory.cs" />
     <Compile Include="backend\Database.cs" />
     <Compile Include="backend\Type_of_product.cs" />
     <Compile Include="frontend\forms\Form_all_products.cs">
