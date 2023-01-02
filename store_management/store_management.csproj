@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="backend\abstractions\PRODUCT.cs" />
+    <Compile Include="backend\Products\Product5.cs" />
+    <Compile Include="backend\Products\Product4.cs" />
+    <Compile Include="backend\Products\Product3.cs" />
+    <Compile Include="backend\Products\Product2 .cs" />
+    <Compile Include="backend\Products\Product1.cs" />
     <Compile Include="backend\Product_factory.cs" />
     <Compile Include="backend\Database.cs" />
     <Compile Include="enums\Product_types.cs" />

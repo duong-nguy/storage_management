@@ -8,6 +8,8 @@ namespace store_management.enums
 {
     enum Manufacturers
     {
-        m1,m2,m3
+        // for expamle Mark-42 made by Stark Industry
+        //             Vibranium chopsticks made by Wakanda
+        Stark_Industry, Wakanda
     }
 }
