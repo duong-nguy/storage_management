@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="backend\abstractions\DATABASE.cs" />
     <Compile Include="backend\abstractions\PRODUCT.cs" />
     <Compile Include="backend\Product_factory.cs" />
     <Compile Include="backend\Database.cs" />
-    <Compile Include="backend\Type_of_product.cs" />
+    <Compile Include="enums\Product_types.cs" />
+    <Compile Include="enums\Manufacturers.cs" />
+    <Compile Include="enums\Search.cs" />
     <Compile Include="frontend\forms\Form_all_products.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +122,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="backend\TODO.txt" />
+    <Content Include="frontend\TODO.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

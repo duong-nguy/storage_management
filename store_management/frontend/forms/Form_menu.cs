@@ -16,6 +16,7 @@ namespace store_management
         public Form_menu()
         {
             InitializeComponent();
+            backend.Database.database_init();
         }
 
         private void btn_add_new_product_Click(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace store_management
 
         private void btn_see_all_product_Click(object sender, EventArgs e)
         {
-            Utility.close_open_form(this, new frontend.forms.Form_all_products());
+            Utility.close_open_form(this, new Form_all_products());
         }
 
         private void btn_exit_Click(object sender, EventArgs e)

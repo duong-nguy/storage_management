@@ -86,6 +86,7 @@ namespace store_management.frontend.forms
             this.btn_add.TabIndex = 8;
             this.btn_add.Text = "Add [product]";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // cb_prdct_prp_4
             // 

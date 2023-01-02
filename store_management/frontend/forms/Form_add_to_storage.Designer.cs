@@ -133,7 +133,6 @@ namespace store_management.frontend.forms
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Quantity";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // tb_model
             // 
@@ -145,6 +144,11 @@ namespace store_management.frontend.forms
             // nbox_quanity
             // 
             this.nbox_quanity.Location = new System.Drawing.Point(363, 48);
+            this.nbox_quanity.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.nbox_quanity.Name = "nbox_quanity";
             this.nbox_quanity.Size = new System.Drawing.Size(55, 20);
             this.nbox_quanity.TabIndex = 7;
@@ -170,7 +174,6 @@ namespace store_management.frontend.forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form_add_product";
             this.Text = "Add Product";
-            this.Load += new System.EventHandler(this.Form_add_product_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbox_quanity)).EndInit();

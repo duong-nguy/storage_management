@@ -4,23 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace store_management.backend.abstractions
+namespace store_management.backend
 {
     static class Product_factory
     {
-        public PRODUCT create_product(
+        public static abstractions.PRODUCT create_product(
             string id,
-            Type_of_product type,
-            string manufacturer,
+            enums.Product_types type,
+            enums.Manufacturers manufacturer,
             string model,
             string quantity,
             params string[] args)
         {
-            switch (type)
-            {
-                default:
-                    break;
-            }
+            throw new Exception();
+        }
+        public static List<string> get_product_properties(enums.Product_types type)
+        {
+            throw new Exception();
         }
     }
 }

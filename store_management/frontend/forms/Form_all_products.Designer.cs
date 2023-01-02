@@ -102,7 +102,6 @@ namespace store_management.frontend.forms
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "By Product Id";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // rb_by_manufacturer
             // 
@@ -123,6 +122,7 @@ namespace store_management.frontend.forms
             this.btn_clear.TabIndex = 6;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // label13
             // 
@@ -149,6 +149,7 @@ namespace store_management.frontend.forms
             this.btn_search.TabIndex = 3;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // rb_by_product_model
             // 
@@ -202,7 +203,6 @@ namespace store_management.frontend.forms
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product Information";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label14
             // 
@@ -232,7 +232,7 @@ namespace store_management.frontend.forms
             this.btn_delete_product.TabIndex = 5;
             this.btn_delete_product.Text = "Delete Product";
             this.btn_delete_product.UseVisualStyleBackColor = true;
-            this.btn_delete_product.Click += new System.EventHandler(this.button5_Click);
+            this.btn_delete_product.Click += new System.EventHandler(this.btn_delete_product_Click);
             // 
             // btn_next_product
             // 
@@ -242,6 +242,7 @@ namespace store_management.frontend.forms
             this.btn_next_product.TabIndex = 13;
             this.btn_next_product.Text = ">>";
             this.btn_next_product.UseVisualStyleBackColor = true;
+            this.btn_next_product.Click += new System.EventHandler(this.btn_next_product_Click);
             // 
             // btn_last_product
             // 
@@ -251,6 +252,7 @@ namespace store_management.frontend.forms
             this.btn_last_product.TabIndex = 12;
             this.btn_last_product.Text = "<<";
             this.btn_last_product.UseVisualStyleBackColor = true;
+            this.btn_last_product.Click += new System.EventHandler(this.btn_last_product_Click);
             // 
             // pictureBox1
             // 
@@ -289,7 +291,6 @@ namespace store_management.frontend.forms
             this.label10.Size = new System.Drawing.Size(76, 13);
             this.label10.TabIndex = 8;
             this.label10.Text = "Product Model";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label9
             // 
@@ -320,7 +321,6 @@ namespace store_management.frontend.forms
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 5;
             this.label7.Text = "[product_id]";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -331,7 +331,6 @@ namespace store_management.frontend.forms
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "Product ID";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // lb_product_manufacturer
             // 
@@ -371,6 +370,7 @@ namespace store_management.frontend.forms
             this.btn_load_all_products.TabIndex = 9;
             this.btn_load_all_products.Text = "Load All Products";
             this.btn_load_all_products.UseVisualStyleBackColor = true;
+            this.btn_load_all_products.Click += new System.EventHandler(this.btn_load_all_products_Click);
             // 
             // btn_back
             // 
@@ -396,7 +396,6 @@ namespace store_management.frontend.forms
             this.Name = "Form_all_products";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "All Products";
-            this.Load += new System.EventHandler(this.Form_all_products_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

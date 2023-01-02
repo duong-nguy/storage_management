@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace store_management.backend
+namespace store_management.enums
 {
-    enum Type_of_product
+    enum Search
     {
-        
+        by_id,by_type,by_manufacturer
     }
 }

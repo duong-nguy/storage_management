@@ -1,4 +1,6 @@
-﻿using System;
+﻿using store_management.backend.abstractions;
+using store_management.enums;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -8,35 +10,39 @@ using System.Threading.Tasks;
 
 namespace store_management.backend
 {
-    class Database : abstractions.DATABASE
+    static class Database
     {
-        Dictionary<string, abstractions.PRODUCT> database;
-        Random random;
-        public Database()
+        static Dictionary<string, PRODUCT> database;
+        static Random random;
+        static public void add_product(
+            Product_types type,
+            Manufacturers manufacturer,
+            string model,
+            int quantity,
+            Image image,
+            params string[] args)
         {
-            database_init();
-            random = new Random();
-        }
-        public void add_product(
-            string type, string manufacturer,
-            string model, int quantity, params string[] args)
-        {
-            string id = create_id(model);
+            string id = create_id(type,manufacturer);
+            throw new Exception();
         }
 
-        public string create_id(string model)
+        static public string create_id(
+            Product_types type,
+            Manufacturers manufacturer)
         {
-            char[] model_c = model.ToArray();
-            string id = model_c[0] + model_c[1] + random.Next(1111, 9999).ToString();
+            //TT-MM-NNNNN
+            //T = type, M = manufacturer, N = Rand nums
+            
+            string id = $"{type} - {manufacturer} - {random.Next(1111, 9999)}";
             while (database.ContainsKey(id))
             {
-                id = model_c[0] + model_c[1] + random.Next(1111, 9999).ToString();
+                id = $"{type} - {manufacturer} - {random.Next(1111, 9999)}";
 
             }
             return id;
         }
 
-        public void database_init()
+        static public void database_init()
         {
             if (!Directory.Exists(@"./database"))
             {
@@ -45,15 +51,17 @@ namespace store_management.backend
                 File.Create(@"./database/data");
             }
         }
-
-        public void delete_product(string id)
+        static public List<string> get_product_properties(Product_types type)
+        {
+            return Product_factory.get_product_properties(type);
+        }
+        static public void delete_product(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Dictionary<string, Image> search(
-            string keywords, bool by_type = false,
-            bool by_id = false, bool by_manufacturer = false)//enum this
+        static public Dictionary<string, Dictionary<PRODUCT, Image>>
+            search(string keywords, Search search)
         {
             throw new NotImplementedException();
         }

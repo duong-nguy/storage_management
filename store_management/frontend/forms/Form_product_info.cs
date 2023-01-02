@@ -15,6 +15,7 @@ namespace store_management.frontend.forms
         public Form_product_info()
         {
             InitializeComponent();
+            this.CancelButton = btn_cancel;
         }
 
         private void form_product_info_Load(object sender, EventArgs e)
@@ -29,7 +30,26 @@ namespace store_management.frontend.forms
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            Utility.close_open_form(this, new Form_add_product());
+            
         }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+           
+        }
+        public List<Object> show_dialog(List<string> product_properties)
+        {
+            lable_init(product_properties);
+            List<Object> object_fields = new List<object>();
+            if(ShowDialog()==DialogResult.Cancel) 
+                return object_fields;
+
+            return object_fields;
+        }
+        private void lable_init(List<string> product_properties)
+        {
+            
+        }
+        
     }
 }
