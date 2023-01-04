@@ -57,5 +57,10 @@ namespace store_management.frontend.forms
         {
 
         }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

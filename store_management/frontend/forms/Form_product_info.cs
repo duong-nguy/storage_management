@@ -12,44 +12,93 @@ namespace store_management.frontend.forms
 {
     public partial class Form_product_info : Form
     {
+        Image image;
+        int quanity;
+        enums.Product_types type;
+        enums.Manufacturers manufacturer;
+        string model;
         public Form_product_info()
         {
             InitializeComponent();
             this.CancelButton = btn_cancel;
-        }
-
-        private void form_product_info_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_cancel_Click(object sender, EventArgs e)
-        {
+            
             
         }
-
-        private void btn_add_Click(object sender, EventArgs e)
+         private void btn_add_Click(object sender, EventArgs e)
         {
-           
+            List<string> fields = new List<string>();
+            foreach (Control control in groupBox1.Controls)
+            {
+                if (control.Name.Contains("fields"))
+                {
+                    if (control.Name.Contains("tb"))//check empty 
+                    {
+                        TextBox textBox =(TextBox) control;
+                        fields.Add(textBox.Text);
+                    }
+                    else if (control.Name.Contains("cb"))//not yet implement
+                    {
+                        CheckBox check = (CheckBox)control;
+                        fields.Add(check.Checked.ToString());
+                    }
+                }
+            }
+            backend.Database.add_product(type, manufacturer, model
+                ,quanity,image,fields.ToArray());
+            this.Close();
         }
-        public List<Object> show_dialog(List<string> product_properties)
+        public void show_dialog(
+            Dictionary<string, string> product_properties,
+            int type, int manufacture, int quantities, string model)
         {
+            this.type = (enums.Product_types) type;
+            this.manufacturer = (enums.Manufacturers) manufacture;
+            this.quanity = quantities;
+            this.model = model;
             lable_init(product_properties);
-            List<Object> object_fields = new List<object>();
-            if(ShowDialog()==DialogResult.Cancel) 
-                return object_fields;
-
-            return object_fields;
+            ShowDialog();
         }
-        private void lable_init(List<string> product_properties)
+        private void lable_init(
+            Dictionary<string, string> product_properties)
         {
+            int y_step = (int) groupBox1.Height * 1 / 2 / product_properties.Count();
+            int x_step = groupBox1.Width * 1 / 10;
+            int x = x_step;
+            int y = y_step;
             
+            foreach (KeyValuePair<string,string> keyValue in product_properties)
+            {
+                Label label = new Label();
+                label.AutoSize = true;
+                label.Font = new Font(
+                    "Microsoft Sans Serif", 8.5F,
+                    FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                label.Location = new Point(x, y);
+                label.Name = $"label_{keyValue.Key}";
+                label.Size = new Size(189, 31);
+                label.TabIndex = 0;
+                label.Text = $"{keyValue.Key}";
+                groupBox1.Controls.Add(label);
+                if (keyValue.Value == "string")
+                {
+                    TextBox text = new TextBox();
+                    text.Location = new Point(x+x_step, y);
+                    text.Name = $"tb_{keyValue.Key}_fields";
+                    text.Size = new Size(100, 20);
+                    text.TabIndex = 4;
+                    groupBox1.Controls.Add(text);
+                }
+               y += y_step;
+            }
         }
-        
+
+        private void btn_load_photo_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "jpg Image | *.jpg|png Image|*.png";
+            DialogResult dialog = openFileDialog1.ShowDialog();
+            if (dialog == DialogResult.Cancel) return;
+            image = Image.FromFile(openFileDialog1.FileName);
+            picb.Image = image;
+        }
     }
 }

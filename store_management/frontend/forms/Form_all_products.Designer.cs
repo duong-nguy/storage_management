@@ -102,6 +102,7 @@ namespace store_management.frontend.forms
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "By Product Id";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // rb_by_manufacturer
             // 
@@ -256,9 +257,10 @@ namespace store_management.frontend.forms
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(365, 66);
+            this.pictureBox1.Location = new System.Drawing.Point(382, 66);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 205);
+            this.pictureBox1.Size = new System.Drawing.Size(173, 205);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 

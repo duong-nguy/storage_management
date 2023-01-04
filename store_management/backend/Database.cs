@@ -23,6 +23,12 @@ namespace store_management.backend
             params string[] args)
         {
             string id = create_id(type,manufacturer);
+            image.Save($@"./database/images/{id}");
+            Object product = Product_factory.create_product(id, type, manufacturer, model, quantity, args);
+            switch (type)
+            {
+                // convert and add product to database
+            }
             throw new Exception();
         }
 
@@ -42,6 +48,7 @@ namespace store_management.backend
             return id;
         }
 
+
         static public void database_init()
         {
             if (!Directory.Exists(@"./database"))
@@ -57,7 +64,8 @@ namespace store_management.backend
         }
         static public void delete_product(string id)
         {
-            throw new NotImplementedException();
+            database.Remove(id);
+            //remove from drive
         }
 
         static public Dictionary<string, Dictionary<PRODUCT, Image>>
@@ -65,5 +73,52 @@ namespace store_management.backend
         {
             throw new NotImplementedException();
         }
+        private static void save_product(PRODUCT PRODUCT)
+        {
+            FileStream fs = new FileStream(
+                @"./database/data",
+                FileMode.Append,FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+            switch (PRODUCT.type)
+            {
+                //cast PRODUCT to it type
+                //sw.WriteLine(product.toString());
+                // write it to drive
+            }
+            sw.Close();
+            fs.Close();
+        }
+        private static void remove_from_drive(string id)
+        {
+            FileStream fs = new FileStream(
+                @"./database/data",
+                FileMode.Open, FileAccess.ReadWrite
+                );
+            StreamWriter sw = new StreamWriter(fs);
+            StreamReader sr = new StreamReader(fs);
+            while (!sr.EndOfStream)
+            {
+                if (sr.ReadLine().Split(',')[0] == id) sw.WriteLine("");
+            }
+            sr.Close();
+            sw.Close();
+            fs.Close();
+        }
+        private static void load_up()
+        {
+            FileStream fs = new FileStream(
+            @"./database/data",
+            FileMode.Open, FileAccess.ReadWrite
+            );
+            StreamReader sr = new StreamReader(fs);
+            while (!sr.EndOfStream)
+            {
+                PRODUCT product = Product_factory.create_product(sr.ReadLine().Split(','));
+                database.Add(product.id, product);
+            }
+            sr.Close();
+            fs.Close();
+        }
+    
     }
 }

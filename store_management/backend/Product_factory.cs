@@ -13,9 +13,16 @@ namespace store_management.backend
             enums.Product_types type,
             enums.Manufacturers manufacturer,
             string model,
-            string quantity,
+            int quantity,
             params string[] args)
         {
+            
+            throw new Exception();
+        }
+        public static abstractions.PRODUCT create_product(
+            string[] product)
+        {
+
             throw new Exception();
         }
         public static List<string> get_product_properties(enums.Product_types type)
