@@ -31,17 +31,17 @@ namespace store_management.frontend.forms
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cb_type = new System.Windows.Forms.ComboBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.rb_by_manufacturer = new System.Windows.Forms.RadioButton();
             this.btn_clear = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.tb_type = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.rb_by_product_model = new System.Windows.Forms.RadioButton();
             this.tb_keywords = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lb_index_of = new System.Windows.Forms.Label();
             this.btn_see_full_info = new System.Windows.Forms.Button();
             this.btn_delete_product = new System.Windows.Forms.Button();
             this.btn_next_product = new System.Windows.Forms.Button();
@@ -76,11 +76,11 @@ namespace store_management.frontend.forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cb_type);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.rb_by_manufacturer);
             this.groupBox1.Controls.Add(this.btn_clear);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.tb_type);
             this.groupBox1.Controls.Add(this.btn_search);
             this.groupBox1.Controls.Add(this.rb_by_product_model);
             this.groupBox1.Controls.Add(this.tb_keywords);
@@ -92,6 +92,14 @@ namespace store_management.frontend.forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
             // 
+            // cb_type
+            // 
+            this.cb_type.FormattingEnabled = true;
+            this.cb_type.Location = new System.Drawing.Point(313, 28);
+            this.cb_type.Name = "cb_type";
+            this.cb_type.Size = new System.Drawing.Size(121, 21);
+            this.cb_type.TabIndex = 9;
+            // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
@@ -99,10 +107,9 @@ namespace store_management.frontend.forms
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(89, 17);
             this.radioButton3.TabIndex = 8;
-            this.radioButton3.TabStop = true;
             this.radioButton3.Text = "By Product Id";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.rb_by_manufacturer_CheckedChanged);
             // 
             // rb_by_manufacturer
             // 
@@ -111,9 +118,9 @@ namespace store_management.frontend.forms
             this.rb_by_manufacturer.Name = "rb_by_manufacturer";
             this.rb_by_manufacturer.Size = new System.Drawing.Size(103, 17);
             this.rb_by_manufacturer.TabIndex = 7;
-            this.rb_by_manufacturer.TabStop = true;
             this.rb_by_manufacturer.Text = "By Manufacturer";
             this.rb_by_manufacturer.UseVisualStyleBackColor = true;
+            this.rb_by_manufacturer.CheckedChanged += new System.EventHandler(this.rb_by_manufacturer_CheckedChanged);
             // 
             // btn_clear
             // 
@@ -123,7 +130,6 @@ namespace store_management.frontend.forms
             this.btn_clear.TabIndex = 6;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = true;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // label13
             // 
@@ -134,13 +140,6 @@ namespace store_management.frontend.forms
             this.label13.Size = new System.Drawing.Size(31, 13);
             this.label13.TabIndex = 5;
             this.label13.Text = "Type";
-            // 
-            // tb_type
-            // 
-            this.tb_type.Location = new System.Drawing.Point(307, 27);
-            this.tb_type.Name = "tb_type";
-            this.tb_type.Size = new System.Drawing.Size(100, 20);
-            this.tb_type.TabIndex = 4;
             // 
             // btn_search
             // 
@@ -159,9 +158,9 @@ namespace store_management.frontend.forms
             this.rb_by_product_model.Name = "rb_by_product_model";
             this.rb_by_product_model.Size = new System.Drawing.Size(109, 17);
             this.rb_by_product_model.TabIndex = 2;
-            this.rb_by_product_model.TabStop = true;
             this.rb_by_product_model.Text = "By Product Model";
             this.rb_by_product_model.UseVisualStyleBackColor = true;
+            this.rb_by_product_model.CheckedChanged += new System.EventHandler(this.rb_by_manufacturer_CheckedChanged);
             // 
             // tb_keywords
             // 
@@ -182,7 +181,7 @@ namespace store_management.frontend.forms
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.lb_index_of);
             this.groupBox2.Controls.Add(this.btn_see_full_info);
             this.groupBox2.Controls.Add(this.btn_delete_product);
             this.groupBox2.Controls.Add(this.btn_next_product);
@@ -205,15 +204,15 @@ namespace store_management.frontend.forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product Information";
             // 
-            // label14
+            // lb_index_of
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(278, 26);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 20);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "[n out of num]";
+            this.lb_index_of.AutoSize = true;
+            this.lb_index_of.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_index_of.Location = new System.Drawing.Point(278, 26);
+            this.lb_index_of.Name = "lb_index_of";
+            this.lb_index_of.Size = new System.Drawing.Size(106, 20);
+            this.lb_index_of.TabIndex = 14;
+            this.lb_index_of.Text = "[n out of num]";
             // 
             // btn_see_full_info
             // 
@@ -435,10 +434,10 @@ namespace store_management.frontend.forms
         private System.Windows.Forms.RadioButton rb_by_manufacturer;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tb_type;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lb_index_of;
         private System.Windows.Forms.Button btn_load_all_products;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label lb_product_type;
+        private System.Windows.Forms.ComboBox cb_type;
     }
 }

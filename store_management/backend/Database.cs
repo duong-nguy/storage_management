@@ -65,14 +65,45 @@ namespace store_management.backend
         static public void delete_product(string id)
         {
             database.Remove(id);
-            //remove from drive
+            remove_from_drive(id);
         }
 
-        static public Dictionary<string, Dictionary<PRODUCT, Image>>
-            search(string keywords, Search search)
+        static public List<PRODUCT> search(string keywords,Product_types type, Search search)
         {
-            throw new NotImplementedException();
+            
+            List<PRODUCT> res= new List<PRODUCT>();
+            if (search == Search.by_id)
+            {
+                res.Add(database[keywords]);
+                return res;
+            }
+            foreach (KeyValuePair<string,PRODUCT> keyValue in database)
+            {
+                if (keyValue.Value.type == type)
+                {
+                    if (search == Search.by_manufacturer)
+                    {
+                        if (keyValue.Value.manufacturer.ToString() == keywords)
+                            res.Add(keyValue.Value);
+                    }
+                    else
+                    {
+                        if (keyValue.Value.model == keywords)
+                            res.Add(keyValue.Value);
+                    }
+                }
+            }
+            return res;
         }
+        static public List<PRODUCT> get_all_product()
+        {
+            return database.Values.ToList();
+        }
+        static public Image get_image(string id)
+        {
+            return Image.FromFile($@"./database/images/{id}");
+        }
+
         private static void save_product(PRODUCT PRODUCT)
         {
             FileStream fs = new FileStream(
@@ -98,7 +129,10 @@ namespace store_management.backend
             StreamReader sr = new StreamReader(fs);
             while (!sr.EndOfStream)
             {
-                if (sr.ReadLine().Split(',')[0] == id) sw.WriteLine("");
+                if (sr.ReadLine().Split(',')[0] == id) {
+                    sw.WriteLine("");
+                    break;
+                }
             }
             sr.Close();
             sw.Close();

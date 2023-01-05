@@ -1,4 +1,5 @@
-﻿using System;
+﻿using store_management.backend.abstractions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,20 @@ namespace store_management.frontend.forms
         public Form_product_description()
         {
             InitializeComponent();
+            CancelButton = btn_cancel;
         }
 
-        private void btn_cancel_Click(object sender, EventArgs e)
+
+
+        private void show_dialog(PRODUCT product)
         {
-            Utility.close_open_form(this, new Form_all_products());
+            foreach (KeyValuePair<string,string> keyValue in product.full_description())
+            {
+                richTextBox1.Text += $"{keyValue.Key}: {keyValue.Value} \n";
+            }
+            pictureBox1.Image = backend.Database.get_image(product.id);
+            ShowDialog();
+
         }
     }
 }
