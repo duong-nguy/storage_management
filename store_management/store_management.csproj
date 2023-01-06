@@ -87,6 +87,8 @@
     <Compile Include="frontend\forms\Form_product_info.Designer.cs">
       <DependentUpon>Form_product_info.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frontend\forms\Form_all_products.resx">
       <DependentUpon>Form_all_products.cs</DependentUpon>
@@ -130,7 +132,15 @@
     <Content Include="assets\add_new.png" />
     <Content Include="assets\database.png" />
     <Content Include="assets\exit.png" />
+    <Content Include="assets\delete.png" />
     <Content Include="assets\close_window.png" />
+    <Content Include="assets\back.png" />
+    <Content Include="assets\icons8-eraser-20.png" />
+    <Content Include="assets\forward.png" />
+    <Content Include="assets\search.png" />
+    <Content Include="assets\view.png" />
+    <Content Include="assets\pic_upload.png" />
+    <Content Include="assets\view_all.png" />
     <Content Include="backend\TODO.txt" />
     <Content Include="frontend\TODO.txt" />
   </ItemGroup>

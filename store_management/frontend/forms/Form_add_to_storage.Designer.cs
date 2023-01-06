@@ -31,18 +31,19 @@ namespace store_management.frontend.forms
         {
             this.label1 = new System.Windows.Forms.Label();
             this.cbox_product_to_add = new System.Windows.Forms.ComboBox();
-            this.btn_add_product = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tb_model = new System.Windows.Forms.TextBox();
             this.nbox_quanity = new System.Windows.Forms.NumericUpDown();
-            this.btn_back = new System.Windows.Forms.Button();
+            this.tb_model = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.cb_manufacturer = new System.Windows.Forms.ComboBox();
-            this.groupBox1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_add_product = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nbox_quanity)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -63,16 +64,6 @@ namespace store_management.frontend.forms
             this.cbox_product_to_add.Size = new System.Drawing.Size(114, 21);
             this.cbox_product_to_add.TabIndex = 1;
             // 
-            // btn_add_product
-            // 
-            this.btn_add_product.Location = new System.Drawing.Point(14, 151);
-            this.btn_add_product.Name = "btn_add_product";
-            this.btn_add_product.Size = new System.Drawing.Size(446, 40);
-            this.btn_add_product.TabIndex = 3;
-            this.btn_add_product.Text = "Add Product";
-            this.btn_add_product.UseVisualStyleBackColor = true;
-            this.btn_add_product.Click += new System.EventHandler(this.btn_add_product_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -81,58 +72,6 @@ namespace store_management.frontend.forms
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Product to Add";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cb_manufacturer);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.btn_add_product);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tb_model);
-            this.groupBox1.Controls.Add(this.nbox_quanity);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cbox_product_to_add);
-            this.groupBox1.Location = new System.Drawing.Point(34, 68);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(478, 209);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Product Information";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(262, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Model";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Manufacturer";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(262, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Quantity";
-            // 
-            // tb_model
-            // 
-            this.tb_model.Location = new System.Drawing.Point(304, 92);
-            this.tb_model.Name = "tb_model";
-            this.tb_model.Size = new System.Drawing.Size(114, 20);
-            this.tb_model.TabIndex = 8;
             // 
             // nbox_quanity
             // 
@@ -146,15 +85,39 @@ namespace store_management.frontend.forms
             this.nbox_quanity.Size = new System.Drawing.Size(55, 20);
             this.nbox_quanity.TabIndex = 7;
             // 
-            // btn_back
+            // tb_model
             // 
-            this.btn_back.Location = new System.Drawing.Point(34, 283);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(478, 38);
-            this.btn_back.TabIndex = 6;
-            this.btn_back.Text = "Back to Menu";
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            this.tb_model.Location = new System.Drawing.Point(304, 92);
+            this.tb_model.Name = "tb_model";
+            this.tb_model.Size = new System.Drawing.Size(114, 20);
+            this.tb_model.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(262, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Quantity";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(42, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Manufacturer";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(262, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Model";
             // 
             // cb_manufacturer
             // 
@@ -164,21 +127,77 @@ namespace store_management.frontend.forms
             this.cb_manufacturer.Size = new System.Drawing.Size(114, 21);
             this.cb_manufacturer.TabIndex = 12;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cb_manufacturer);
+            this.groupBox1.Controls.Add(this.btn_back);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.btn_add_product);
+            this.groupBox1.Controls.Add(this.tb_model);
+            this.groupBox1.Controls.Add(this.nbox_quanity);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.cbox_product_to_add);
+            this.groupBox1.Location = new System.Drawing.Point(34, 68);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(478, 259);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Product Information";
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::store_management.Properties.Resources.close_window;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(521, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 34);
+            this.button1.TabIndex = 7;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackgroundImage = global::store_management.Properties.Resources.exit;
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.Location = new System.Drawing.Point(265, 149);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(91, 86);
+            this.btn_back.TabIndex = 6;
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // btn_add_product
+            // 
+            this.btn_add_product.BackgroundImage = global::store_management.Properties.Resources.add_new;
+            this.btn_add_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_add_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_product.Location = new System.Drawing.Point(127, 149);
+            this.btn_add_product.Name = "btn_add_product";
+            this.btn_add_product.Size = new System.Drawing.Size(84, 86);
+            this.btn_add_product.TabIndex = 3;
+            this.btn_add_product.UseVisualStyleBackColor = true;
+            this.btn_add_product.Click += new System.EventHandler(this.btn_add_product_Click);
+            // 
             // Form_add_product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 381);
-            this.Controls.Add(this.btn_back);
+            this.ClientSize = new System.Drawing.Size(555, 360);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_add_product";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Product";
+            ((System.ComponentModel.ISupportInitialize)(this.nbox_quanity)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbox_quanity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,16 +206,17 @@ namespace store_management.frontend.forms
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbox_product_to_add;
         private System.Windows.Forms.Button btn_add_product;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_model;
-        private System.Windows.Forms.NumericUpDown nbox_quanity;
         private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbox_product_to_add;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nbox_quanity;
+        private System.Windows.Forms.TextBox tb_model;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cb_manufacturer;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

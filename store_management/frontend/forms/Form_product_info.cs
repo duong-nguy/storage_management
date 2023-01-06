@@ -92,13 +92,20 @@ namespace store_management.frontend.forms
             }
         }
 
-        private void btn_load_photo_Click(object sender, EventArgs e)
+
+
+        private void picb_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "jpg Image | *.jpg|png Image|*.png";
             DialogResult dialog = openFileDialog1.ShowDialog();
             if (dialog == DialogResult.Cancel) return;
             image = Image.FromFile(openFileDialog1.FileName);
             picb.Image = image;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Utility.exit();
         }
     }
 }

@@ -32,6 +32,7 @@ namespace store_management.frontend.forms
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cb_type = new System.Windows.Forms.ComboBox();
+            this.btn_load_all_products = new System.Windows.Forms.Button();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.rb_by_manufacturer = new System.Windows.Forms.RadioButton();
             this.btn_clear = new System.Windows.Forms.Button();
@@ -57,8 +58,8 @@ namespace store_management.frontend.forms
             this.lb_product_manufacturer = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lb_product_model = new System.Windows.Forms.Label();
-            this.btn_load_all_products = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -77,6 +78,7 @@ namespace store_management.frontend.forms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cb_type);
+            this.groupBox1.Controls.Add(this.btn_load_all_products);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.rb_by_manufacturer);
             this.groupBox1.Controls.Add(this.btn_clear);
@@ -85,9 +87,9 @@ namespace store_management.frontend.forms
             this.groupBox1.Controls.Add(this.rb_by_product_model);
             this.groupBox1.Controls.Add(this.tb_keywords);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(37, 43);
+            this.groupBox1.Location = new System.Drawing.Point(37, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(633, 100);
+            this.groupBox1.Size = new System.Drawing.Size(633, 121);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
@@ -95,15 +97,29 @@ namespace store_management.frontend.forms
             // cb_type
             // 
             this.cb_type.FormattingEnabled = true;
-            this.cb_type.Location = new System.Drawing.Point(313, 28);
+            this.cb_type.Location = new System.Drawing.Point(233, 73);
             this.cb_type.Name = "cb_type";
-            this.cb_type.Size = new System.Drawing.Size(121, 21);
+            this.cb_type.Size = new System.Drawing.Size(129, 21);
             this.cb_type.TabIndex = 9;
+            // 
+            // btn_load_all_products
+            // 
+            this.btn_load_all_products.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_load_all_products.Image = global::store_management.Properties.Resources.view_all;
+            this.btn_load_all_products.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_load_all_products.Location = new System.Drawing.Point(507, 24);
+            this.btn_load_all_products.Name = "btn_load_all_products";
+            this.btn_load_all_products.Size = new System.Drawing.Size(81, 30);
+            this.btn_load_all_products.TabIndex = 9;
+            this.btn_load_all_products.Text = "Load All";
+            this.btn_load_all_products.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_load_all_products.UseVisualStyleBackColor = true;
+            this.btn_load_all_products.Click += new System.EventHandler(this.btn_load_all_products_Click);
             // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(167, 70);
+            this.radioButton3.Location = new System.Drawing.Point(19, 48);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(89, 17);
             this.radioButton3.TabIndex = 8;
@@ -114,7 +130,7 @@ namespace store_management.frontend.forms
             // rb_by_manufacturer
             // 
             this.rb_by_manufacturer.AutoSize = true;
-            this.rb_by_manufacturer.Location = new System.Drawing.Point(304, 70);
+            this.rb_by_manufacturer.Location = new System.Drawing.Point(19, 73);
             this.rb_by_manufacturer.Name = "rb_by_manufacturer";
             this.rb_by_manufacturer.Size = new System.Drawing.Size(103, 17);
             this.rb_by_manufacturer.TabIndex = 7;
@@ -124,18 +140,22 @@ namespace store_management.frontend.forms
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(478, 67);
+            this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_clear.Image = global::store_management.Properties.Resources.search;
+            this.btn_clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_clear.Location = new System.Drawing.Point(406, 25);
             this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(92, 23);
+            this.btn_clear.Size = new System.Drawing.Size(75, 30);
             this.btn_clear.TabIndex = 6;
-            this.btn_clear.Text = "Clear";
+            this.btn_clear.Text = "Search";
+            this.btn_clear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_clear.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(255, 31);
+            this.label13.Location = new System.Drawing.Point(165, 77);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(31, 13);
             this.label13.TabIndex = 5;
@@ -143,18 +163,22 @@ namespace store_management.frontend.forms
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(478, 26);
+            this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_search.Image = global::store_management.Properties.Resources.icons8_eraser_20;
+            this.btn_search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_search.Location = new System.Drawing.Point(406, 64);
             this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(92, 23);
+            this.btn_search.Size = new System.Drawing.Size(75, 30);
             this.btn_search.TabIndex = 3;
-            this.btn_search.Text = "Search";
+            this.btn_search.Text = "Clear";
+            this.btn_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // rb_by_product_model
             // 
             this.rb_by_product_model.AutoSize = true;
-            this.rb_by_product_model.Location = new System.Drawing.Point(26, 70);
+            this.rb_by_product_model.Location = new System.Drawing.Point(19, 25);
             this.rb_by_product_model.Name = "rb_by_product_model";
             this.rb_by_product_model.Size = new System.Drawing.Size(109, 17);
             this.rb_by_product_model.TabIndex = 2;
@@ -164,7 +188,7 @@ namespace store_management.frontend.forms
             // 
             // tb_keywords
             // 
-            this.tb_keywords.Location = new System.Drawing.Point(93, 27);
+            this.tb_keywords.Location = new System.Drawing.Point(233, 29);
             this.tb_keywords.Name = "tb_keywords";
             this.tb_keywords.Size = new System.Drawing.Size(129, 20);
             this.tb_keywords.TabIndex = 1;
@@ -173,7 +197,7 @@ namespace store_management.frontend.forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 31);
+            this.label2.Location = new System.Drawing.Point(166, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 0;
@@ -181,6 +205,7 @@ namespace store_management.frontend.forms
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_back);
             this.groupBox2.Controls.Add(this.lb_index_of);
             this.groupBox2.Controls.Add(this.btn_see_full_info);
             this.groupBox2.Controls.Add(this.btn_delete_product);
@@ -197,7 +222,7 @@ namespace store_management.frontend.forms
             this.groupBox2.Controls.Add(this.lb_product_manufacturer);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.lb_product_model);
-            this.groupBox2.Location = new System.Drawing.Point(37, 156);
+            this.groupBox2.Location = new System.Drawing.Point(37, 189);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(633, 300);
             this.groupBox2.TabIndex = 2;
@@ -208,56 +233,70 @@ namespace store_management.frontend.forms
             // 
             this.lb_index_of.AutoSize = true;
             this.lb_index_of.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_index_of.Location = new System.Drawing.Point(278, 26);
+            this.lb_index_of.Location = new System.Drawing.Point(132, 26);
             this.lb_index_of.Name = "lb_index_of";
             this.lb_index_of.Size = new System.Drawing.Size(0, 20);
             this.lb_index_of.TabIndex = 14;
             // 
             // btn_see_full_info
             // 
-            this.btn_see_full_info.Location = new System.Drawing.Point(49, 209);
+            this.btn_see_full_info.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_see_full_info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_see_full_info.Image = global::store_management.Properties.Resources.view;
+            this.btn_see_full_info.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_see_full_info.Location = new System.Drawing.Point(285, 222);
             this.btn_see_full_info.Name = "btn_see_full_info";
-            this.btn_see_full_info.Size = new System.Drawing.Size(286, 23);
+            this.btn_see_full_info.Size = new System.Drawing.Size(72, 72);
             this.btn_see_full_info.TabIndex = 4;
-            this.btn_see_full_info.Text = "See Full Infomation";
+            this.btn_see_full_info.Text = "Detail";
+            this.btn_see_full_info.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_see_full_info.UseVisualStyleBackColor = true;
             this.btn_see_full_info.Click += new System.EventHandler(this.btn_see_full_info_Click);
             // 
             // btn_delete_product
             // 
-            this.btn_delete_product.Location = new System.Drawing.Point(49, 248);
+            this.btn_delete_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_product.Image = global::store_management.Properties.Resources.delete;
+            this.btn_delete_product.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_delete_product.Location = new System.Drawing.Point(469, 222);
             this.btn_delete_product.Name = "btn_delete_product";
-            this.btn_delete_product.Size = new System.Drawing.Size(286, 23);
+            this.btn_delete_product.Size = new System.Drawing.Size(72, 72);
             this.btn_delete_product.TabIndex = 5;
-            this.btn_delete_product.Text = "Delete Product";
+            this.btn_delete_product.Text = "Delete";
+            this.btn_delete_product.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_delete_product.UseVisualStyleBackColor = true;
             this.btn_delete_product.Click += new System.EventHandler(this.btn_delete_product_Click);
             // 
             // btn_next_product
             // 
-            this.btn_next_product.Location = new System.Drawing.Point(541, 21);
+            this.btn_next_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_next_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_next_product.Image = global::store_management.Properties.Resources.forward;
+            this.btn_next_product.Location = new System.Drawing.Point(136, 222);
             this.btn_next_product.Name = "btn_next_product";
-            this.btn_next_product.Size = new System.Drawing.Size(75, 23);
+            this.btn_next_product.Size = new System.Drawing.Size(60, 28);
             this.btn_next_product.TabIndex = 13;
-            this.btn_next_product.Text = ">>";
             this.btn_next_product.UseVisualStyleBackColor = true;
             this.btn_next_product.Click += new System.EventHandler(this.btn_next_product_Click);
             // 
             // btn_last_product
             // 
-            this.btn_last_product.Location = new System.Drawing.Point(6, 21);
+            this.btn_last_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_last_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_last_product.Image = global::store_management.Properties.Resources.back;
+            this.btn_last_product.Location = new System.Drawing.Point(19, 222);
             this.btn_last_product.Name = "btn_last_product";
-            this.btn_last_product.Size = new System.Drawing.Size(75, 23);
+            this.btn_last_product.Size = new System.Drawing.Size(60, 28);
             this.btn_last_product.TabIndex = 12;
-            this.btn_last_product.Text = "<<";
             this.btn_last_product.UseVisualStyleBackColor = true;
             this.btn_last_product.Click += new System.EventHandler(this.btn_last_product_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(382, 66);
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(354, 26);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 205);
+            this.pictureBox1.Size = new System.Drawing.Size(119, 175);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
@@ -280,6 +319,7 @@ namespace store_management.frontend.forms
             this.lb_product_quantity.Name = "lb_product_quantity";
             this.lb_product_quantity.Size = new System.Drawing.Size(0, 13);
             this.lb_product_quantity.TabIndex = 9;
+            this.lb_product_quantity.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label10
             // 
@@ -309,6 +349,7 @@ namespace store_management.frontend.forms
             this.lb_product_type.Name = "lb_product_type";
             this.lb_product_type.Size = new System.Drawing.Size(0, 13);
             this.lb_product_type.TabIndex = 6;
+            this.lb_product_type.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -318,6 +359,7 @@ namespace store_management.frontend.forms
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 5;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
@@ -337,6 +379,7 @@ namespace store_management.frontend.forms
             this.lb_product_manufacturer.Name = "lb_product_manufacturer";
             this.lb_product_manufacturer.Size = new System.Drawing.Size(0, 13);
             this.lb_product_manufacturer.TabIndex = 3;
+            this.lb_product_manufacturer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
@@ -356,38 +399,42 @@ namespace store_management.frontend.forms
             this.lb_product_model.Name = "lb_product_model";
             this.lb_product_model.Size = new System.Drawing.Size(0, 13);
             this.lb_product_model.TabIndex = 1;
-            // 
-            // btn_load_all_products
-            // 
-            this.btn_load_all_products.Location = new System.Drawing.Point(541, 12);
-            this.btn_load_all_products.Name = "btn_load_all_products";
-            this.btn_load_all_products.Size = new System.Drawing.Size(129, 23);
-            this.btn_load_all_products.TabIndex = 9;
-            this.btn_load_all_products.Text = "Load All Products";
-            this.btn_load_all_products.UseVisualStyleBackColor = true;
-            this.btn_load_all_products.Click += new System.EventHandler(this.btn_load_all_products_Click);
+            this.lb_product_model.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(37, 477);
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.Image = global::store_management.Properties.Resources.exit;
+            this.btn_back.Location = new System.Drawing.Point(373, 222);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(633, 50);
+            this.btn_back.Size = new System.Drawing.Size(72, 72);
             this.btn_back.TabIndex = 10;
-            this.btn_back.Text = "Back to Menu";
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::store_management.Properties.Resources.close_window;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(662, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 34);
+            this.button1.TabIndex = 8;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form_all_products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 538);
-            this.Controls.Add(this.btn_back);
-            this.Controls.Add(this.btn_load_all_products);
+            this.ClientSize = new System.Drawing.Size(696, 519);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_all_products";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "All Products";
@@ -433,5 +480,6 @@ namespace store_management.frontend.forms
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Label lb_product_type;
         private System.Windows.Forms.ComboBox cb_type;
+        private System.Windows.Forms.Button button1;
     }
 }

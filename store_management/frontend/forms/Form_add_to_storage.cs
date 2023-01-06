@@ -51,5 +51,10 @@ namespace store_management.frontend.forms
         {
             Utility.close_open_form(this, new Form_menu());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Utility.exit();
+        }
     }
 }

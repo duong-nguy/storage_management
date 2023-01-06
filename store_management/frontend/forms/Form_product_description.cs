@@ -31,5 +31,10 @@ namespace store_management.frontend.forms
             ShowDialog();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Utility.exit();
+        }
     }
 }
