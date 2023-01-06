@@ -9,7 +9,7 @@ namespace store_management.backend.Products
 {
     class Androids : abstractions.PRODUCT
     {
-        public Androids(string id, string colour,
+        public Androids(string id,
             Product_types type, Manufacturers manufacturer,
             string model, int quantity, string specialization,
             int bust,int weist, int hip)
@@ -75,13 +75,13 @@ namespace store_management.backend.Products
             return full_description;
         }
 
-        public override Dictionary<string, string> properties()
+        public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
-            properties.Add("specialization", specialization);
-            properties.Add("Bust", bust.ToString());
-            properties.Add("Weist", weist.ToString());
-            properties.Add("Hip", hip.ToString());
+            properties.Add("specialization", "string");
+            properties.Add("Bust", "int");
+            properties.Add("Weist", "int");
+            properties.Add("Hip", "int");
 
             return properties;
         }

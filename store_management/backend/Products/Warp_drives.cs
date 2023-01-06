@@ -64,7 +64,7 @@ namespace store_management.backend.Products
             return full_description;
         }
 
-        public override Dictionary<string, string> properties()
+        public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("Spatial compression rate", "int");//double

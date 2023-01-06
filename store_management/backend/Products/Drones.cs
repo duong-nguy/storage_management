@@ -86,13 +86,13 @@ namespace store_management.backend.Products
 
         }
 
-        public override Dictionary<string, string> properties()
+        public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
-            properties.Add("Speed", speed.ToString());
-            properties.Add("specialization", specialization);
-            properties.Add("range", range.ToString());
-            properties.Add("autonomous", autonomous.ToString());
+            properties.Add("Speed", "int");
+            properties.Add("specialization", "string");
+            properties.Add("range", "int");
+            properties.Add("autonomous", "bool");
 
             return properties;
 

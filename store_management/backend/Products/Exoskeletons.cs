@@ -11,10 +11,10 @@ namespace store_management.backend.Products
     {
      
         public Exoskeletons(
-            string id, string colour,
-            Product_types type, Manufacturers manufacturer,
-            string model, int quantity, bool auto_pilot,
-            int shook_absorbent, string material)
+            string id, Product_types type,
+            Manufacturers manufacturer,
+            string model, int quantity,string colour,
+            bool auto_pilot, int shook_absorbent, string material)
         {
             this.id = id;
             this.type = type;
@@ -74,7 +74,7 @@ namespace store_management.backend.Products
             return full_description;
         }
 
-        public override Dictionary<string, string> properties()
+        public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("Colour", "string");

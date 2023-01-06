@@ -96,7 +96,7 @@ namespace store_management.backend.Products
 
         }
 
-        public override Dictionary<string, string> properties()
+        public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("Damage", "int");
