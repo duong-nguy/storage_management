@@ -8,8 +8,6 @@ namespace store_management.enums
 {
     enum Manufacturers
     {
-        // for expamle Mark-42 made by Stark Industry
-        //             Vibranium chopsticks made by Wakanda
-       The_Creators, Stark_Industry,Stan_lee,Back_from_furture,FIFA
+       Stark_Industry,LNet,Cyber_Media,UAS,SHI
     }
 }

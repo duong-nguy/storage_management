@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="backend\abstractions\PRODUCT.cs" />
-    <Compile Include="backend\Products\Product5.cs" />
-    <Compile Include="backend\Products\Product4.cs" />
-    <Compile Include="backend\Products\Product3.cs" />
-    <Compile Include="backend\Products\Product2 .cs" />
-    <Compile Include="backend\Products\Product1.cs" />
+    <Compile Include="backend\Products\Androids.cs" />
+    <Compile Include="backend\Products\Exoskeletons.cs" />
+    <Compile Include="backend\Products\Space_Guns.cs" />
+    <Compile Include="backend\Products\Drones.cs" />
+    <Compile Include="backend\Products\Warp_drives.cs" />
     <Compile Include="backend\Product_factory.cs" />
     <Compile Include="backend\Database.cs" />
     <Compile Include="enums\Product_types.cs" />
@@ -87,9 +87,7 @@
     <Compile Include="frontend\forms\Form_product_info.Designer.cs">
       <DependentUpon>Form_product_info.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility.cs" />
     <EmbeddedResource Include="frontend\forms\Form_all_products.resx">
       <DependentUpon>Form_all_products.cs</DependentUpon>
     </EmbeddedResource>

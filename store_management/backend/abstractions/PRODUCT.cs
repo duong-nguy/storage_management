@@ -12,7 +12,7 @@ namespace store_management.backend.abstractions
         public abstract enums.Product_types type { get; }
         public abstract enums.Manufacturers manufacturer { get; }
         public abstract string model { get; }
-        public abstract string quantity { get; }
+        public abstract int quantity { get; }
         public abstract Dictionary<string, string> full_description();
         public abstract Dictionary<string, string> properties();
         
