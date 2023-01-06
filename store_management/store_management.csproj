@@ -113,6 +113,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -128,6 +129,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\add_new.png" />
+    <Content Include="assets\database.png" />
+    <Content Include="assets\exit.png" />
+    <Content Include="assets\close_window.png" />
     <Content Include="backend\TODO.txt" />
     <Content Include="frontend\TODO.txt" />
   </ItemGroup>

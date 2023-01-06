@@ -21,13 +21,13 @@ namespace store_management.frontend.forms
 
 
 
-        private void show_dialog(PRODUCT product)
+        public void show_dialog(Dictionary<string,string> full_description, Image img)
         {
-            foreach (KeyValuePair<string,string> keyValue in product.full_description())
+            foreach (KeyValuePair<string,string> keyValue in full_description)
             {
                 richTextBox1.Text += $"{keyValue.Key}: {keyValue.Value} \n";
             }
-            pictureBox1.Image = backend.Database.get_image(product.id);
+            pictureBox1.Image = img;
             ShowDialog();
 
         }

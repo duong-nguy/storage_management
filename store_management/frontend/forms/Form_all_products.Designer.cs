@@ -210,9 +210,8 @@ namespace store_management.frontend.forms
             this.lb_index_of.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_index_of.Location = new System.Drawing.Point(278, 26);
             this.lb_index_of.Name = "lb_index_of";
-            this.lb_index_of.Size = new System.Drawing.Size(106, 20);
+            this.lb_index_of.Size = new System.Drawing.Size(0, 20);
             this.lb_index_of.TabIndex = 14;
-            this.lb_index_of.Text = "[n out of num]";
             // 
             // btn_see_full_info
             // 
@@ -279,9 +278,8 @@ namespace store_management.frontend.forms
             this.lb_product_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_product_quantity.Location = new System.Drawing.Point(187, 177);
             this.lb_product_quantity.Name = "lb_product_quantity";
-            this.lb_product_quantity.Size = new System.Drawing.Size(92, 13);
+            this.lb_product_quantity.Size = new System.Drawing.Size(0, 13);
             this.lb_product_quantity.TabIndex = 9;
-            this.lb_product_quantity.Text = "[product_quantity]";
             // 
             // label10
             // 
@@ -309,9 +307,8 @@ namespace store_management.frontend.forms
             this.lb_product_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_product_type.Location = new System.Drawing.Point(187, 66);
             this.lb_product_type.Name = "lb_product_type";
-            this.lb_product_type.Size = new System.Drawing.Size(75, 13);
+            this.lb_product_type.Size = new System.Drawing.Size(0, 13);
             this.lb_product_type.TabIndex = 6;
-            this.lb_product_type.Text = "[product_type]";
             // 
             // label7
             // 
@@ -319,9 +316,8 @@ namespace store_management.frontend.forms
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(187, 91);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 5;
-            this.label7.Text = "[product_id]";
             // 
             // label6
             // 
@@ -339,9 +335,8 @@ namespace store_management.frontend.forms
             this.lb_product_manufacturer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_product_manufacturer.Location = new System.Drawing.Point(187, 120);
             this.lb_product_manufacturer.Name = "lb_product_manufacturer";
-            this.lb_product_manufacturer.Size = new System.Drawing.Size(117, 13);
+            this.lb_product_manufacturer.Size = new System.Drawing.Size(0, 13);
             this.lb_product_manufacturer.TabIndex = 3;
-            this.lb_product_manufacturer.Text = "[product_manufacturer]";
             // 
             // label4
             // 
@@ -359,9 +354,8 @@ namespace store_management.frontend.forms
             this.lb_product_model.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_product_model.Location = new System.Drawing.Point(187, 150);
             this.lb_product_model.Name = "lb_product_model";
-            this.lb_product_model.Size = new System.Drawing.Size(83, 13);
+            this.lb_product_model.Size = new System.Drawing.Size(0, 13);
             this.lb_product_model.TabIndex = 1;
-            this.lb_product_model.Text = "[product_model]";
             // 
             // btn_load_all_products
             // 

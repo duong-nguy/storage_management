@@ -33,5 +33,20 @@ namespace store_management
         {
             Utility.exit();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Utility.exit();
+        }
     }
 }

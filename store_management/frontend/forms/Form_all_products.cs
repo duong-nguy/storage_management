@@ -31,7 +31,9 @@ namespace store_management.frontend.forms
         {
             Form_product_description form =  new Form_product_description();
             Hide();
-            form.show_dialog(search_result[index]);
+            form.show_dialog(
+                search_result[index].full_description(),
+                backend.Database.get_image(search_result[index].id));
             Show();
         }
 
