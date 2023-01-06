@@ -1,4 +1,5 @@
-﻿using System;
+﻿ 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,6 @@ namespace store_management.enums
         // should be 5 types here
         // Keep it funny but don't make it too long
         // these are bad example don't do like this
-        Nameless_Celestial_Brain_Matters, The_Ancient_One_honey_tee
+        Transformers,Iron_suites,Spider_Man_Suits,Time_Machines,trophy
     }
 }
