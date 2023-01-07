@@ -33,7 +33,7 @@ namespace store_management.frontend.forms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cb_type = new System.Windows.Forms.ComboBox();
             this.btn_load_all_products = new System.Windows.Forms.Button();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rb_byid = new System.Windows.Forms.RadioButton();
             this.rb_by_manufacturer = new System.Windows.Forms.RadioButton();
             this.btn_clear = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -42,6 +42,7 @@ namespace store_management.frontend.forms
             this.tb_keywords = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_back = new System.Windows.Forms.Button();
             this.lb_index_of = new System.Windows.Forms.Label();
             this.btn_see_full_info = new System.Windows.Forms.Button();
             this.btn_delete_product = new System.Windows.Forms.Button();
@@ -53,12 +54,11 @@ namespace store_management.frontend.forms
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lb_product_type = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lb_id = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lb_product_manufacturer = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lb_product_model = new System.Windows.Forms.Label();
-            this.btn_back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -79,7 +79,7 @@ namespace store_management.frontend.forms
             // 
             this.groupBox1.Controls.Add(this.cb_type);
             this.groupBox1.Controls.Add(this.btn_load_all_products);
-            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.rb_byid);
             this.groupBox1.Controls.Add(this.rb_by_manufacturer);
             this.groupBox1.Controls.Add(this.btn_clear);
             this.groupBox1.Controls.Add(this.label13);
@@ -107,7 +107,7 @@ namespace store_management.frontend.forms
             this.btn_load_all_products.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_load_all_products.Image = global::store_management.Properties.Resources.view_all;
             this.btn_load_all_products.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_load_all_products.Location = new System.Drawing.Point(507, 24);
+            this.btn_load_all_products.Location = new System.Drawing.Point(478, 25);
             this.btn_load_all_products.Name = "btn_load_all_products";
             this.btn_load_all_products.Size = new System.Drawing.Size(81, 30);
             this.btn_load_all_products.TabIndex = 9;
@@ -116,16 +116,16 @@ namespace store_management.frontend.forms
             this.btn_load_all_products.UseVisualStyleBackColor = true;
             this.btn_load_all_products.Click += new System.EventHandler(this.btn_load_all_products_Click);
             // 
-            // radioButton3
+            // rb_byid
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(19, 48);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(89, 17);
-            this.radioButton3.TabIndex = 8;
-            this.radioButton3.Text = "By Product Id";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.rb_by_manufacturer_CheckedChanged);
+            this.rb_byid.AutoSize = true;
+            this.rb_byid.Location = new System.Drawing.Point(19, 48);
+            this.rb_byid.Name = "rb_byid";
+            this.rb_byid.Size = new System.Drawing.Size(89, 17);
+            this.rb_byid.TabIndex = 8;
+            this.rb_byid.Text = "By Product Id";
+            this.rb_byid.UseVisualStyleBackColor = true;
+            this.rb_byid.CheckedChanged += new System.EventHandler(this.rb_by_manufacturer_CheckedChanged);
             // 
             // rb_by_manufacturer
             // 
@@ -141,15 +141,16 @@ namespace store_management.frontend.forms
             // btn_clear
             // 
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_clear.Image = global::store_management.Properties.Resources.search;
+            this.btn_clear.Image = global::store_management.Properties.Resources.icons8_eraser_20;
             this.btn_clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_clear.Location = new System.Drawing.Point(406, 25);
+            this.btn_clear.Location = new System.Drawing.Point(398, 60);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(75, 30);
             this.btn_clear.TabIndex = 6;
-            this.btn_clear.Text = "Search";
+            this.btn_clear.Text = "Clear";
             this.btn_clear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // label13
             // 
@@ -164,13 +165,13 @@ namespace store_management.frontend.forms
             // btn_search
             // 
             this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_search.Image = global::store_management.Properties.Resources.icons8_eraser_20;
+            this.btn_search.Image = global::store_management.Properties.Resources.search;
             this.btn_search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_search.Location = new System.Drawing.Point(406, 64);
+            this.btn_search.Location = new System.Drawing.Point(398, 25);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 30);
             this.btn_search.TabIndex = 3;
-            this.btn_search.Text = "Clear";
+            this.btn_search.Text = "Search";
             this.btn_search.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
@@ -217,7 +218,7 @@ namespace store_management.frontend.forms
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.lb_product_type);
-            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.lb_id);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.lb_product_manufacturer);
             this.groupBox2.Controls.Add(this.label4);
@@ -228,6 +229,18 @@ namespace store_management.frontend.forms
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product Information";
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.Image = global::store_management.Properties.Resources.exit;
+            this.btn_back.Location = new System.Drawing.Point(476, 222);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(72, 72);
+            this.btn_back.TabIndex = 10;
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // lb_index_of
             // 
@@ -258,7 +271,7 @@ namespace store_management.frontend.forms
             this.btn_delete_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_delete_product.Image = global::store_management.Properties.Resources.delete;
             this.btn_delete_product.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_delete_product.Location = new System.Drawing.Point(469, 222);
+            this.btn_delete_product.Location = new System.Drawing.Point(378, 222);
             this.btn_delete_product.Name = "btn_delete_product";
             this.btn_delete_product.Size = new System.Drawing.Size(72, 72);
             this.btn_delete_product.TabIndex = 5;
@@ -305,7 +318,7 @@ namespace store_management.frontend.forms
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(46, 177);
+            this.label11.Location = new System.Drawing.Point(46, 174);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 13);
             this.label11.TabIndex = 10;
@@ -315,7 +328,7 @@ namespace store_management.frontend.forms
             // 
             this.lb_product_quantity.AutoSize = true;
             this.lb_product_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_product_quantity.Location = new System.Drawing.Point(187, 177);
+            this.lb_product_quantity.Location = new System.Drawing.Point(187, 174);
             this.lb_product_quantity.Name = "lb_product_quantity";
             this.lb_product_quantity.Size = new System.Drawing.Size(0, 13);
             this.lb_product_quantity.TabIndex = 9;
@@ -325,7 +338,7 @@ namespace store_management.frontend.forms
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(46, 150);
+            this.label10.Location = new System.Drawing.Point(46, 147);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 13);
             this.label10.TabIndex = 8;
@@ -351,21 +364,21 @@ namespace store_management.frontend.forms
             this.lb_product_type.TabIndex = 6;
             this.lb_product_type.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label7
+            // lb_id
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(187, 91);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 13);
-            this.label7.TabIndex = 5;
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lb_id.AutoSize = true;
+            this.lb_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_id.Location = new System.Drawing.Point(187, 93);
+            this.lb_id.Name = "lb_id";
+            this.lb_id.Size = new System.Drawing.Size(0, 13);
+            this.lb_id.TabIndex = 5;
+            this.lb_id.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(46, 91);
+            this.label6.Location = new System.Drawing.Point(46, 93);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 4;
@@ -395,23 +408,11 @@ namespace store_management.frontend.forms
             // 
             this.lb_product_model.AutoSize = true;
             this.lb_product_model.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_product_model.Location = new System.Drawing.Point(187, 150);
+            this.lb_product_model.Location = new System.Drawing.Point(187, 147);
             this.lb_product_model.Name = "lb_product_model";
             this.lb_product_model.Size = new System.Drawing.Size(0, 13);
             this.lb_product_model.TabIndex = 1;
             this.lb_product_model.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btn_back
-            // 
-            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.Image = global::store_management.Properties.Resources.exit;
-            this.btn_back.Location = new System.Drawing.Point(373, 222);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(72, 72);
-            this.btn_back.TabIndex = 10;
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // button1
             // 
@@ -424,6 +425,7 @@ namespace store_management.frontend.forms
             this.button1.Size = new System.Drawing.Size(34, 34);
             this.button1.TabIndex = 8;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form_all_products
             // 
@@ -459,7 +461,7 @@ namespace store_management.frontend.forms
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_id;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lb_product_manufacturer;
         private System.Windows.Forms.Label label4;
@@ -471,7 +473,7 @@ namespace store_management.frontend.forms
         private System.Windows.Forms.Button btn_next_product;
         private System.Windows.Forms.Button btn_last_product;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton rb_byid;
         private System.Windows.Forms.RadioButton rb_by_manufacturer;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Label label13;

@@ -87,6 +87,7 @@
     <Compile Include="frontend\forms\Form_product_info.Designer.cs">
       <DependentUpon>Form_product_info.cs</DependentUpon>
     </Compile>
+    <Compile Include="frontend\Input_fillters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,8 +142,6 @@
     <Content Include="assets\view.png" />
     <Content Include="assets\pic_upload.png" />
     <Content Include="assets\view_all.png" />
-    <Content Include="backend\TODO.txt" />
-    <Content Include="frontend\TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

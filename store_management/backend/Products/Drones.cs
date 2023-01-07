@@ -9,7 +9,7 @@ namespace store_management.backend.Products
 
         public Drones(
             string id, Product_types type, Manufacturers manufacturer,
-            string model, int quantity, int speed, string specialization,
+            string model, int quantity, int speed, string roles,
             int range, bool autonomous)
         {
             this.id=id;
@@ -18,7 +18,7 @@ namespace store_management.backend.Products
             this.model = model;
             this.quantity = quantity;
             this.speed=speed;
-            this.specialization = specialization;
+            this.roles = roles;
             this.range = range;
             this.autonomous = autonomous;
         }
@@ -61,7 +61,7 @@ namespace store_management.backend.Products
         public int range {
             get;
         }
-        public string specialization
+        public string roles
         {
             get;
         }
@@ -74,14 +74,14 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> full_description = new Dictionary<string, string>();
             full_description.Add("Id", id);
-            full_description.Add("model",model);
-            full_description.Add("quantity",quantity.ToString());
+            full_description.Add("Model",model);
+            full_description.Add("Quantity",quantity.ToString());
             full_description.Add("Type", type.ToString());
             full_description.Add("Manufacturer", manufacturer.ToString());
             full_description.Add("Speed", speed.ToString());
-            full_description.Add("specialization", specialization);
-            full_description.Add("range", range.ToString());
-            full_description.Add("autonomous", autonomous.ToString());
+            full_description.Add("Roles", roles);
+            full_description.Add("Range", range.ToString());
+            full_description.Add("Autonomous", autonomous.ToString());
             return full_description;
 
         }
@@ -90,20 +90,19 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("Speed", "int");
-            properties.Add("specialization", "string");
-            properties.Add("range", "int");
-            properties.Add("autonomous", "bool");
+            properties.Add("Roles", "string");
+            properties.Add("Range", "int");
+            properties.Add("Autonomous", "bool");
 
             return properties;
 
         }
 
-        public string ToString(string format)
+        public override string ToString()
         {
-            return id + "," + manufacturer + ","
-                + model + "," + type + "," + quantity + ","
-                + speed.ToString() + "," + specialization + ","
-                + range.ToString() + "," + autonomous.ToString();
+            return $"{id},{(int)type},{(int)manufacturer}, {model}," +
+                $"{quantity},{speed},{roles},{range},{autonomous}";
+        
         }
 
     }

@@ -14,7 +14,7 @@ namespace store_management.backend.Products
             string id, Product_types type,
             Manufacturers manufacturer,
             string model, int quantity,string colour,
-            bool auto_pilot, int shook_absorbent, string material)
+            int buffering, string material, bool auto_pilot)
         {
             this.id = id;
             this.type = type;
@@ -22,11 +22,9 @@ namespace store_management.backend.Products
             this.model = model;
             this.quantity = quantity;
             this.colour = colour;
-            this.auto_pilot = auto_pilot;
-            this.shook_absorbent = shook_absorbent;
+            this.buffering = buffering;
             this.material = material;
-            
-            
+            this.auto_pilot = auto_pilot;
         }
 
 
@@ -48,7 +46,7 @@ namespace store_management.backend.Products
         public string colour {
             get;
         }
-        public int shook_absorbent
+        public int buffering
         {
             get;
         }
@@ -68,9 +66,9 @@ namespace store_management.backend.Products
             full_description.Add("Model", model);
             full_description.Add("Quantity", quantity.ToString());
             full_description.Add("Colour", colour);
-            full_description.Add("Auto_pilot",auto_pilot.ToString());
-            full_description.Add("Shock absorbent", shook_absorbent.ToString());
+            full_description.Add("Buffering", buffering.ToString());
             full_description.Add("Material", material);
+            full_description.Add("Auto pilot", auto_pilot.ToString());
             return full_description;
         }
 
@@ -78,20 +76,16 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("Colour", "string");
-            properties.Add("Auto_pilot", "bool");
-            properties.Add("shock_absorbent", "int");
+            properties.Add("Buffering", "int");
             properties.Add("Material", "string");
+            properties.Add("Auto pilot", "bool");
             return properties;
         }
 
         public override string ToString()
         {
-            return id + "," + manufacturer + "," 
-                + model + "," + type + "," + quantity + "," 
-                + colour + "," + auto_pilot.ToString() + "," +shook_absorbent.ToString() +
-                "," + material;
-            
-
+            return $"{id},{(int)type},{(int)manufacturer}, {model}," +
+                $"{quantity},{colour},{buffering},{material},{auto_pilot}";
         }
         
     }

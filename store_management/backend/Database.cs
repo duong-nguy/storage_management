@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace store_management.backend
 {
@@ -22,27 +20,20 @@ namespace store_management.backend
             Image image,
             params string[] args)
         {
-            string id = create_id(type,manufacturer);
-            image.Save($@"./database/images/{id}");
-            Object product = Product_factory.create_product(id, type, manufacturer, model, quantity, args);
-            switch (type)
-            {
-                // convert and add product to database
-            }
-            throw new Exception();
+            string id = create_id(type, manufacturer);
+            PRODUCT product = Product_factory.create_product(id, type, manufacturer, model, quantity, args);
+            database.Add(id, product);
+            save_product(product, image);
         }
 
         static public string create_id(
             Product_types type,
             Manufacturers manufacturer)
         {
-            //TT-MM-NNNNN
-            //T = type, M = manufacturer, N = Rand nums
-            
-            string id = $"{type} - {manufacturer} - {random.Next(1111, 9999)}";
+            string id = $"{(int)type}-{(int)manufacturer}-{random.Next(1111, 9999)}";
             while (database.ContainsKey(id))
             {
-                id = $"{type} - {manufacturer} - {random.Next(1111, 9999)}";
+                id = $"{(int)type}-{(int)manufacturer}-{random.Next(1111, 9999)}";
 
             }
             return id;
@@ -51,14 +42,18 @@ namespace store_management.backend
 
         static public void database_init()
         {
+           
+            database = new Dictionary<string, PRODUCT>();
+            random = new Random();
             if (!Directory.Exists(@"./database"))
             {
                 Directory.CreateDirectory(@"./database");
                 Directory.CreateDirectory(@"./database/images");
                 File.Create(@"./database/data");
             }
+            load_up();
         }
-        static public List<string> get_product_properties(Product_types type)
+        static public Dictionary<string, string> get_product_properties(Product_types type)
         {
             return Product_factory.get_product_properties(type);
         }
@@ -66,18 +61,19 @@ namespace store_management.backend
         {
             database.Remove(id);
             remove_from_drive(id);
+            
         }
 
-        static public List<PRODUCT> search(string keywords,Product_types type, Search search)
+        static public List<PRODUCT> search(string keywords, Product_types type, Search search)
         {
-            
-            List<PRODUCT> res= new List<PRODUCT>();
+
+            List<PRODUCT> res = new List<PRODUCT>();
             if (search == Search.by_id)
             {
                 res.Add(database[keywords]);
                 return res;
             }
-            foreach (KeyValuePair<string,PRODUCT> keyValue in database)
+            foreach (KeyValuePair<string, PRODUCT> keyValue in database)
             {
                 if (keyValue.Value.type == type)
                 {
@@ -101,42 +97,33 @@ namespace store_management.backend
         }
         static public Image get_image(string id)
         {
-            return Image.FromFile($@"./database/images/{id}");
+            return Image.FromFile($@"./database/images/{id}.jpg");
         }
 
-        private static void save_product(PRODUCT PRODUCT)
+        private static void save_product(PRODUCT PRODUCT, Image image)
         {
             FileStream fs = new FileStream(
                 @"./database/data",
-                FileMode.Append,FileAccess.Write);
+                FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
-            switch (PRODUCT.type)
-            {
-                //cast PRODUCT to it type
-                //sw.WriteLine(product.toString());
-                // write it to drive
-            }
+            sw.WriteLine(PRODUCT.ToString());
             sw.Close();
             fs.Close();
+            image.Save($@"./database/images/{PRODUCT.id}.jpg");
+            
         }
         private static void remove_from_drive(string id)
         {
-            FileStream fs = new FileStream(
-                @"./database/data",
-                FileMode.Open, FileAccess.ReadWrite
-                );
-            StreamWriter sw = new StreamWriter(fs);
-            StreamReader sr = new StreamReader(fs);
-            while (!sr.EndOfStream)
+            List<string> file = File.ReadAllLines(@"./database/data").ToList();
+            string remove = "";
+            foreach (string line in file)
             {
-                if (sr.ReadLine().Split(',')[0] == id) {
-                    sw.WriteLine("");
-                    break;
-                }
+                remove = line.Split(',')[0] == id ? line : "";
             }
-            sr.Close();
-            sw.Close();
-            fs.Close();
+            file.Remove(remove);
+            File.Delete($@"./database/images/{id}.jpg");
+            File.WriteAllLines(@"./database/data", file.ToArray());
+            
         }
         private static void load_up()
         {
@@ -153,6 +140,5 @@ namespace store_management.backend
             sr.Close();
             fs.Close();
         }
-    
     }
 }

@@ -1,5 +1,0 @@
-﻿# Task to do in frontend
-	Implement all the button function only interact with
- backend through database
-	If there is function you need try work around
- it before adding a function to database

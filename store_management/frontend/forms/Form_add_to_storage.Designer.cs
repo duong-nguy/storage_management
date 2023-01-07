@@ -39,9 +39,9 @@ namespace store_management.frontend.forms
             this.label5 = new System.Windows.Forms.Label();
             this.cb_manufacturer = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_add_product = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nbox_quanity)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +59,13 @@ namespace store_management.frontend.forms
             // cbox_product_to_add
             // 
             this.cbox_product_to_add.FormattingEnabled = true;
-            this.cbox_product_to_add.Location = new System.Drawing.Point(127, 48);
+            this.cbox_product_to_add.Items.AddRange(new object[] {
+            "Androids",
+            "Drones",
+            "Exoskeletons",
+            "Space Gunns",
+            "Warp drives"});
+            this.cbox_product_to_add.Location = new System.Drawing.Point(111, 94);
             this.cbox_product_to_add.Name = "cbox_product_to_add";
             this.cbox_product_to_add.Size = new System.Drawing.Size(114, 21);
             this.cbox_product_to_add.TabIndex = 1;
@@ -67,7 +73,7 @@ namespace store_management.frontend.forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 52);
+            this.label2.Location = new System.Drawing.Point(26, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 4;
@@ -75,7 +81,7 @@ namespace store_management.frontend.forms
             // 
             // nbox_quanity
             // 
-            this.nbox_quanity.Location = new System.Drawing.Point(363, 48);
+            this.nbox_quanity.Location = new System.Drawing.Point(368, 97);
             this.nbox_quanity.Maximum = new decimal(new int[] {
             500,
             0,
@@ -87,7 +93,7 @@ namespace store_management.frontend.forms
             // 
             // tb_model
             // 
-            this.tb_model.Location = new System.Drawing.Point(304, 92);
+            this.tb_model.Location = new System.Drawing.Point(309, 142);
             this.tb_model.Name = "tb_model";
             this.tb_model.Size = new System.Drawing.Size(114, 20);
             this.tb_model.TabIndex = 8;
@@ -95,7 +101,7 @@ namespace store_management.frontend.forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(262, 52);
+            this.label3.Location = new System.Drawing.Point(267, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 9;
@@ -104,7 +110,7 @@ namespace store_management.frontend.forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 95);
+            this.label4.Location = new System.Drawing.Point(26, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 10;
@@ -113,7 +119,7 @@ namespace store_management.frontend.forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(262, 95);
+            this.label5.Location = new System.Drawing.Point(267, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 11;
@@ -122,7 +128,13 @@ namespace store_management.frontend.forms
             // cb_manufacturer
             // 
             this.cb_manufacturer.FormattingEnabled = true;
-            this.cb_manufacturer.Location = new System.Drawing.Point(127, 92);
+            this.cb_manufacturer.Items.AddRange(new object[] {
+            "Stark Industry",
+            "LNet",
+            "Cyber Media",
+            "UAS",
+            "SHI"});
+            this.cb_manufacturer.Location = new System.Drawing.Point(111, 139);
             this.cb_manufacturer.Name = "cb_manufacturer";
             this.cb_manufacturer.Size = new System.Drawing.Size(114, 21);
             this.cb_manufacturer.TabIndex = 12;
@@ -130,41 +142,26 @@ namespace store_management.frontend.forms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cb_manufacturer);
-            this.groupBox1.Controls.Add(this.btn_back);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.btn_add_product);
             this.groupBox1.Controls.Add(this.tb_model);
             this.groupBox1.Controls.Add(this.nbox_quanity);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbox_product_to_add);
-            this.groupBox1.Location = new System.Drawing.Point(34, 68);
+            this.groupBox1.Location = new System.Drawing.Point(23, 68);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(478, 259);
+            this.groupBox1.Size = new System.Drawing.Size(454, 259);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Information";
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::store_management.Properties.Resources.close_window;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(521, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 34);
-            this.button1.TabIndex = 7;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_back
             // 
             this.btn_back.BackgroundImage = global::store_management.Properties.Resources.exit;
             this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.Location = new System.Drawing.Point(265, 149);
+            this.btn_back.Location = new System.Drawing.Point(272, 365);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(91, 86);
             this.btn_back.TabIndex = 6;
@@ -176,21 +173,36 @@ namespace store_management.frontend.forms
             this.btn_add_product.BackgroundImage = global::store_management.Properties.Resources.add_new;
             this.btn_add_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_add_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_product.Location = new System.Drawing.Point(127, 149);
+            this.btn_add_product.Location = new System.Drawing.Point(118, 365);
             this.btn_add_product.Name = "btn_add_product";
             this.btn_add_product.Size = new System.Drawing.Size(84, 86);
             this.btn_add_product.TabIndex = 3;
             this.btn_add_product.UseVisualStyleBackColor = true;
             this.btn_add_product.Click += new System.EventHandler(this.btn_add_product_Click);
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::store_management.Properties.Resources.close_window;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(464, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 34);
+            this.button1.TabIndex = 7;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form_add_product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 360);
+            this.ClientSize = new System.Drawing.Size(500, 500);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_add_product);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_add_product";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

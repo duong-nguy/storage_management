@@ -20,7 +20,7 @@ namespace store_management.frontend.forms
         public Form_product_info()
         {
             InitializeComponent();
-            this.CancelButton = btn_cancel;
+            CancelButton = btn_cancel;
             
             
         }
@@ -41,19 +41,24 @@ namespace store_management.frontend.forms
                         CheckBox check = (CheckBox)control;
                         fields.Add(check.Checked.ToString());
                     }
+                    else if (control.Name.Contains("nb"))
+                    {
+                        NumericUpDown num = (NumericUpDown)control;
+                        fields.Add(num.Value.ToString());
+                    }
                 }
             }
             backend.Database.add_product(type, manufacturer, model
                 ,quanity,image,fields.ToArray());
-            this.Close();
+            Close();
         }
         public void show_dialog(
             Dictionary<string, string> product_properties,
-            int type, int manufacture, int quantities, string model)
+            int type, int manufacturer, int quantity, string model)
         {
             this.type = (enums.Product_types) type;
-            this.manufacturer = (enums.Manufacturers) manufacture;
-            this.quanity = quantities;
+            this.manufacturer = (enums.Manufacturers) manufacturer;
+            this.quanity = quantity;
             this.model = model;
             lable_init(product_properties);
             ShowDialog();
@@ -61,34 +66,75 @@ namespace store_management.frontend.forms
         private void lable_init(
             Dictionary<string, string> product_properties)
         {
-            int y_step = (int) groupBox1.Height * 1 / 2 / product_properties.Count();
-            int x_step = groupBox1.Width * 1 / 10;
-            int x = x_step;
+            int y_step = (int) groupBox1.Height / (product_properties.Count() + 1);
+            int x_step = groupBox1.Width * 1 / 5;
+            int x = groupBox1.Width * 1 / 10;
             int y = y_step;
+            lb_product_type.Text = type.ToString();
+            groupBox1.Text = $"{type} infomation";
             
             foreach (KeyValuePair<string,string> keyValue in product_properties)
             {
-                Label label = new Label();
-                label.AutoSize = true;
-                label.Font = new Font(
-                    "Microsoft Sans Serif", 8.5F,
-                    FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                label.Location = new Point(x, y);
-                label.Name = $"label_{keyValue.Key}";
-                label.Size = new Size(189, 31);
-                label.TabIndex = 0;
-                label.Text = $"{keyValue.Key}";
-                groupBox1.Controls.Add(label);
-                if (keyValue.Value == "string")
+                if (keyValue.Value != "bool")
                 {
-                    TextBox text = new TextBox();
-                    text.Location = new Point(x+x_step, y);
-                    text.Name = $"tb_{keyValue.Key}_fields";
-                    text.Size = new Size(100, 20);
-                    text.TabIndex = 4;
-                    groupBox1.Controls.Add(text);
+                    Label label = new Label();
+                    label.AutoSize = true;
+                    label.Font = new Font(
+                        "Microsoft Sans Serif", 8.5F,
+                        FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    label.Location = new Point(x, y);
+                    label.Name = $"label_{keyValue.Key}";
+                    label.Size = new Size(189, 31);
+                    label.TabIndex = 0;
+                    label.Text = $"{keyValue.Key}";
+                    groupBox1.Controls.Add(label);
                 }
-               y += y_step;
+                switch (keyValue.Value)
+                {
+                    case "string":
+                        {
+                            TextBox text = new TextBox();
+                            text.Location = new Point(x + x_step, y);
+                            text.Name = $"tb_{keyValue.Key}_fields";
+                            text.Size = new Size(100, 20);
+                            text.TabIndex = 4;
+                            groupBox1.Controls.Add(text);
+                            break;
+                        }
+
+                    case "int":
+                        {
+                            NumericUpDown num = new NumericUpDown();
+                            num.Location = new Point(x + x_step, y);
+                            num.Name = $"nb_{keyValue.Key}_fields";
+                            num.Size = new Size(100, 20);
+                            num.TabIndex = 4;
+                            num.Maximum = 100;
+                            groupBox1.Controls.Add(num);
+                            break;
+                        }
+                    case "bool":
+                        {
+                            CheckBox checkBox = new CheckBox();
+                            checkBox.AutoSize = true;
+                            checkBox.Font = new Font(
+                                "Microsoft Sans Serif", 8.5F,
+                                FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                            checkBox.Text = $"{keyValue.Key}";
+                            checkBox.Location = new Point(x, y);
+                            checkBox.Name = $"cb_{keyValue.Key}_fields";
+                            checkBox.Size = new Size(100, 20);
+                            checkBox.TabIndex = 0;
+                            groupBox1.Controls.Add(checkBox);
+                            break;
+                        }
+                    default:
+                        {
+                            throw new Exception
+                                ($"Can not find control for {keyValue.Value}");
+                        }
+                }
+                y += y_step;
             }
         }
 
@@ -105,7 +151,7 @@ namespace store_management.frontend.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Utility.exit();
+            Close();
         }
     }
 }

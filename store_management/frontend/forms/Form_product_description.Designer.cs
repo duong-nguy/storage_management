@@ -46,16 +46,16 @@ namespace store_management.frontend.forms
             this.groupBox1.Controls.Add(this.richTextBox1);
             this.groupBox1.Location = new System.Drawing.Point(17, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(581, 297);
+            this.groupBox1.Size = new System.Drawing.Size(471, 297);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Infomation";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(350, 35);
+            this.pictureBox1.Location = new System.Drawing.Point(255, 35);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 224);
+            this.pictureBox1.Size = new System.Drawing.Size(180, 224);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -66,7 +66,7 @@ namespace store_management.frontend.forms
             this.richTextBox1.Enabled = false;
             this.richTextBox1.Location = new System.Drawing.Point(34, 35);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(243, 224);
+            this.richTextBox1.Size = new System.Drawing.Size(181, 224);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -97,7 +97,7 @@ namespace store_management.frontend.forms
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::store_management.Properties.Resources.close_window;
-            this.button1.Location = new System.Drawing.Point(577, -3);
+            this.button1.Location = new System.Drawing.Point(466, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 34);
             this.button1.TabIndex = 16;
@@ -108,7 +108,7 @@ namespace store_management.frontend.forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 430);
+            this.ClientSize = new System.Drawing.Size(500, 500);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.label2);

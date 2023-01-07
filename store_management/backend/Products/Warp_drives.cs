@@ -11,7 +11,7 @@ namespace store_management.backend.Products
     {
         public Warp_drives(
             string id, Product_types type, Manufacturers manufacturer,
-            string model, int quantity, double spatial_compression_rate,
+            string model, int quantity, string power_by,
             bool artifictial_blackhole, bool artifictial_whitehole,
             int wrap_speed)
         {
@@ -20,7 +20,7 @@ namespace store_management.backend.Products
             this.manufacturer = manufacturer;
             this.model = model;
             this.quantity = quantity;
-            this.spatial_compression_rate = spatial_compression_rate;
+            this.power_by = power_by;
             this.artifictial_blackhole = artifictial_blackhole;
             this.artifictial_whitehole = artifictial_whitehole;
             this.wrap_speed = wrap_speed;
@@ -41,7 +41,7 @@ namespace store_management.backend.Products
         public override int quantity {
             get; 
         }
-        public double spatial_compression_rate
+        public string power_by
         {
             get;
         }
@@ -57,7 +57,7 @@ namespace store_management.backend.Products
             full_description.Add("Manufacturer", manufacturer.ToString());
             full_description.Add("Model", model);
             full_description.Add("Quantity", quantity.ToString());
-            full_description.Add("Spatial compression rate", spatial_compression_rate.ToString());
+            full_description.Add("Power with", power_by.ToString());
             full_description.Add("Artifictial blackhole", artifictial_blackhole.ToString());
             full_description.Add("Artifictial whitehole", artifictial_whitehole.ToString());
             full_description.Add("Wrap speed", wrap_speed.ToString());
@@ -67,7 +67,7 @@ namespace store_management.backend.Products
         public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
-            properties.Add("Spatial compression rate", "int");//double
+            properties.Add("Power with", "string");
             properties.Add("Artifictial blackhole", "bool");
             properties.Add("Artifictial whitehole", "bool");
             properties.Add("Wrap speed", "int");
@@ -75,8 +75,8 @@ namespace store_management.backend.Products
         }
         public override string ToString()
         {
-            return $"{id},{type},{manufacturer},{model},{quantity}" +
-                $",{spatial_compression_rate},{artifictial_blackhole},{artifictial_whitehole}" +
+            return $"{id},{(int)type},{(int)manufacturer},{model},{quantity}" +
+                $",{power_by},{artifictial_blackhole},{artifictial_whitehole}," +
                 $"{wrap_speed}";
         }
     }

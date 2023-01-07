@@ -10,7 +10,6 @@ namespace store_management.backend.Products
     class Space_Guns : abstractions.PRODUCT
     {
 
-        // implement everythings that have throw new NotImplementedException();
         public Space_Guns(
             string id, Product_types type, Manufacturers manufacturer,
             string model, int quantity, int damage,
@@ -58,7 +57,6 @@ namespace store_management.backend.Products
             get;
         }
 
-        // you can change the name and return type of these field
         public int damage
         {
 
@@ -109,12 +107,8 @@ namespace store_management.backend.Products
 
         public override string ToString()
         {
-            string format =
-                id + "," + type.ToString() + "," + manufacturer.ToString() +
-                "," + model + ","  + quantity.ToString() +
-                "," + damage.ToString() + "," + weight.ToString() +
-                "," + cost.ToString() + "," + rounds.ToString();
-            return format;
+            return $"{id},{(int)type},{(int)manufacturer}, {model}," +
+                $"{quantity},{damage},{weight},{cost},{rounds}";
         }
         
     }

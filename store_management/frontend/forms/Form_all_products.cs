@@ -47,8 +47,17 @@ namespace store_management.frontend.forms
         }
         private void render_product()
         {
-            lb_index_of.Text = $"{index} of {search_result.Count}";
+            lb_index_of.Text = $"";
+            lb_product_type.Text = $"";
+            lb_id.Text = $"";
+            lb_product_manufacturer.Text = $"";
+            lb_product_model.Text = $"";
+            lb_product_quantity.Text = $"";
+            
+            if (search_result.Count == 0) return;
+            lb_index_of.Text = $"{index+1} of {search_result.Count}";
             lb_product_type.Text = $"{search_result[index].type}";
+            lb_id.Text = $"{search_result[index].id}";
             lb_product_manufacturer.Text = $"{search_result[index].manufacturer}";
             lb_product_model.Text = $"{search_result[index].model}";
             lb_product_quantity.Text = $"{search_result[index].quantity}";
@@ -79,25 +88,44 @@ namespace store_management.frontend.forms
 
         private void btn_last_product_Click(object sender, EventArgs e)
         {
-            index = index <= 0 ? index - 1 : search_result.Count;
+            index = index <= 0 ? search_result.Count -1: index - 1;
             render_product();
         }
 
         private void btn_next_product_Click(object sender, EventArgs e)
         {
-            index = index > search_result.Count ? index + 1 : 0;
+            index = index > search_result.Count -2 ? 0 : index + 1;
             render_product();
         }
 
         private void btn_delete_product_Click(object sender, EventArgs e)
         {
+            if (search_result.Count() == 0) return;
+            pictureBox1.Image.Dispose();
+            pictureBox1.Image = null;
             backend.Database.delete_product(search_result[index].id);
+            search_result.Remove(search_result[index]);
+            render_product();
         }
 
         private void btn_load_all_products_Click(object sender, EventArgs e)
         {
             search_result = backend.Database.get_all_product();
             render_product();
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            tb_keywords.Text = "";
+            rb_byid.Checked = false;
+            rb_by_manufacturer.Checked = false;
+            rb_by_product_model.Checked = false;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Utility.exit();
         }
     }
 }

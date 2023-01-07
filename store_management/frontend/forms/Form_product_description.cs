@@ -34,7 +34,7 @@ namespace store_management.frontend.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Utility.exit();
+            Close();
         }
     }
 }
