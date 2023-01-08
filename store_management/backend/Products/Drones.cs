@@ -9,7 +9,7 @@ namespace store_management.backend.Products
 
         public Drones(
             string id, Product_types type, Manufacturers manufacturer,
-            string model, int quantity, int speed, string roles,
+            string model, int quantity, string roles, int speed, 
             int range, bool autonomous)
         {
             this.id=id;
@@ -17,8 +17,8 @@ namespace store_management.backend.Products
             this.manufacturer = manufacturer;
             this.model = model;
             this.quantity = quantity;
-            this.speed=speed;
             this.roles = roles;
+            this.speed=speed;
             this.range = range;
             this.autonomous = autonomous;
         }
@@ -74,12 +74,14 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> full_description = new Dictionary<string, string>();
             full_description.Add("Id", id);
+            full_description.Add("Type",
+               Utility.make_pretty_string(type.ToString()));
+            full_description.Add("Manufacturer",
+                Utility.make_pretty_string(manufacturer.ToString()));
             full_description.Add("Model",model);
             full_description.Add("Quantity",quantity.ToString());
-            full_description.Add("Type", type.ToString());
-            full_description.Add("Manufacturer", manufacturer.ToString());
-            full_description.Add("Speed", speed.ToString());
             full_description.Add("Roles", roles);
+            full_description.Add("Speed", speed.ToString());
             full_description.Add("Range", range.ToString());
             full_description.Add("Autonomous", autonomous.ToString());
             return full_description;
@@ -89,8 +91,8 @@ namespace store_management.backend.Products
         public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
-            properties.Add("Speed", "int");
             properties.Add("Roles", "string");
+            properties.Add("Speed", "int");
             properties.Add("Range", "int");
             properties.Add("Autonomous", "bool");
 
@@ -101,7 +103,7 @@ namespace store_management.backend.Products
         public override string ToString()
         {
             return $"{id},{(int)type},{(int)manufacturer}, {model}," +
-                $"{quantity},{speed},{roles},{range},{autonomous}";
+                $"{quantity},{roles},{speed},{range},{autonomous}";
         
         }
 

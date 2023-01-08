@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace store_management.frontend
+namespace store_management.enums
 {
-    static class Input_fillters
+    enum Validation_result
     {
-
+        Yes,No,cbox_is_empty,tbox_is_empty
     }
 }

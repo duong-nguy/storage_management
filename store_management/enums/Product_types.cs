@@ -9,6 +9,6 @@ namespace store_management.enums
 {
     enum Product_types
     {
-        Androids,Drones,Exoskeletons,Space_Guns,Warp_drives
+        androids,drones,exoskeletons,space_guns,warp_drives,null_value
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="enums\Product_types.cs" />
     <Compile Include="enums\Manufacturers.cs" />
     <Compile Include="enums\Search.cs" />
+    <Compile Include="enums\Validation_result.cs" />
     <Compile Include="frontend\forms\Form_all_products.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +88,7 @@
     <Compile Include="frontend\forms\Form_product_info.Designer.cs">
       <DependentUpon>Form_product_info.cs</DependentUpon>
     </Compile>
-    <Compile Include="frontend\Input_fillters.cs" />
+    <Compile Include="frontend\Input_valid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

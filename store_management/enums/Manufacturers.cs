@@ -8,6 +8,6 @@ namespace store_management.enums
 {
     enum Manufacturers
     {
-       Stark_Industry,LNet,Cyber_Media,UAS,SHI
+       stark_industry,lnet,cyber_media,uas,shi,general_manufactur,null_value
     }
 }

@@ -63,7 +63,7 @@ namespace store_management.frontend.forms
             "Androids",
             "Drones",
             "Exoskeletons",
-            "Space Gunns",
+            "Space Guns",
             "Warp drives"});
             this.cbox_product_to_add.Location = new System.Drawing.Point(111, 94);
             this.cbox_product_to_add.Name = "cbox_product_to_add";
@@ -75,9 +75,9 @@ namespace store_management.frontend.forms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(26, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Product to Add";
+            this.label2.Text = "Product type";
             // 
             // nbox_quanity
             // 

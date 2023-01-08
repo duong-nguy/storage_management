@@ -14,6 +14,7 @@ namespace store_management
         [STAThread]
         static void Main()
         {
+            backend.Database.database_init();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_menu());

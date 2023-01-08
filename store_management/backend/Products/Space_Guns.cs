@@ -82,8 +82,10 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> full_description = new Dictionary<string, string>();
             full_description.Add("Id", id);
-            full_description.Add("Type", type.ToString());
-            full_description.Add("Manufacturer", manufacturer.ToString());
+            full_description.Add("Type",
+               Utility.make_pretty_string(type.ToString()));
+            full_description.Add("Manufacturer",
+                Utility.make_pretty_string(manufacturer.ToString()));
             full_description.Add("Model", model);
             full_description.Add("Quantity", quantity.ToString());
             full_description.Add("Damage", damage.ToString());

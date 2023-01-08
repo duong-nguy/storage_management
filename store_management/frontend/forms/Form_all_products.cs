@@ -15,8 +15,9 @@ namespace store_management.frontend.forms
         public Form_all_products()
         {
             InitializeComponent();
-            cb_type.DataSource =
-                Enum.GetValues(typeof(enums.Product_types));
+            search = enums.Search.null_value;
+            search_result = new List<backend.abstractions.PRODUCT>();
+
         }
         enums.Search search;
         List<backend.abstractions.PRODUCT> search_result;
@@ -29,6 +30,7 @@ namespace store_management.frontend.forms
 
         private void btn_see_full_info_Click(object sender, EventArgs e)
         {
+            if (search_result.Count() == 0) return;
             Form_product_description form =  new Form_product_description();
             Hide();
             form.show_dialog(
@@ -39,10 +41,11 @@ namespace store_management.frontend.forms
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            enums.Product_types type;
-            Enum.TryParse(
-                cb_type.SelectedValue.ToString(), out type);
-            search_result = backend.Database.search(tb_keywords.Text,type, search);
+            enums.Product_types type = (enums.Product_types) cb_type.SelectedIndex;
+            search_result = backend.Database.search(
+                tb_keywords.Text, search, type);
+            index = 0;
+            render_product();
 
         }
         private void render_product()
@@ -53,16 +56,19 @@ namespace store_management.frontend.forms
             lb_product_manufacturer.Text = $"";
             lb_product_model.Text = $"";
             lb_product_quantity.Text = $"";
-            
+            if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
+            pictureBox1.Image = null;
             if (search_result.Count == 0) return;
             lb_index_of.Text = $"{index+1} of {search_result.Count}";
-            lb_product_type.Text = $"{search_result[index].type}";
+            lb_product_type.Text =
+                $"{Utility.make_pretty_string(search_result[index].type.ToString())}";
             lb_id.Text = $"{search_result[index].id}";
-            lb_product_manufacturer.Text = $"{search_result[index].manufacturer}";
+            lb_product_manufacturer.Text =
+                $"{Utility.make_pretty_string(search_result[index].manufacturer.ToString())}";
             lb_product_model.Text = $"{search_result[index].model}";
             lb_product_quantity.Text = $"{search_result[index].quantity}";
             pictureBox1.Image = backend.Database.get_image(search_result[index].id);
-
+            
         }
 
 
@@ -88,12 +94,14 @@ namespace store_management.frontend.forms
 
         private void btn_last_product_Click(object sender, EventArgs e)
         {
+            if (search_result.Count() == 0) return;
             index = index <= 0 ? search_result.Count -1: index - 1;
             render_product();
         }
 
         private void btn_next_product_Click(object sender, EventArgs e)
         {
+            if (search_result.Count() == 0) return;
             index = index > search_result.Count -2 ? 0 : index + 1;
             render_product();
         }
@@ -101,8 +109,7 @@ namespace store_management.frontend.forms
         private void btn_delete_product_Click(object sender, EventArgs e)
         {
             if (search_result.Count() == 0) return;
-            pictureBox1.Image.Dispose();
-            pictureBox1.Image = null;
+            if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
             backend.Database.delete_product(search_result[index].id);
             search_result.Remove(search_result[index]);
             render_product();
@@ -111,6 +118,7 @@ namespace store_management.frontend.forms
         private void btn_load_all_products_Click(object sender, EventArgs e)
         {
             search_result = backend.Database.get_all_product();
+            index = 0;
             render_product();
         }
 
@@ -120,6 +128,7 @@ namespace store_management.frontend.forms
             rb_byid.Checked = false;
             rb_by_manufacturer.Checked = false;
             rb_by_product_model.Checked = false;
+            search = enums.Search.null_value;
 
         }
 

@@ -14,7 +14,7 @@ namespace store_management.backend.Products
             string id, Product_types type,
             Manufacturers manufacturer,
             string model, int quantity,string colour,
-            int buffering, string material, bool auto_pilot)
+            string material, int buffering, bool auto_pilot)
         {
             this.id = id;
             this.type = type;
@@ -22,8 +22,8 @@ namespace store_management.backend.Products
             this.model = model;
             this.quantity = quantity;
             this.colour = colour;
-            this.buffering = buffering;
             this.material = material;
+            this.buffering = buffering;
             this.auto_pilot = auto_pilot;
         }
 
@@ -61,13 +61,15 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> full_description = new Dictionary<string, string>();
             full_description.Add("Id", id);
-            full_description.Add("Type", type.ToString());
-            full_description.Add("Manufacturer", manufacturer.ToString());
+            full_description.Add("Type",
+               Utility.make_pretty_string(type.ToString()));
+            full_description.Add("Manufacturer",
+                Utility.make_pretty_string(manufacturer.ToString()));
             full_description.Add("Model", model);
             full_description.Add("Quantity", quantity.ToString());
             full_description.Add("Colour", colour);
-            full_description.Add("Buffering", buffering.ToString());
             full_description.Add("Material", material);
+            full_description.Add("Buffering", buffering.ToString());
             full_description.Add("Auto pilot", auto_pilot.ToString());
             return full_description;
         }
@@ -76,8 +78,8 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("Colour", "string");
-            properties.Add("Buffering", "int");
             properties.Add("Material", "string");
+            properties.Add("Buffering", "int");
             properties.Add("Auto pilot", "bool");
             return properties;
         }
@@ -85,7 +87,7 @@ namespace store_management.backend.Products
         public override string ToString()
         {
             return $"{id},{(int)type},{(int)manufacturer}, {model}," +
-                $"{quantity},{colour},{buffering},{material},{auto_pilot}";
+                $"{quantity},{colour},{material},{buffering},{auto_pilot}";
         }
         
     }

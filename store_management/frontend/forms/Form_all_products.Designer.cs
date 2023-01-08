@@ -96,7 +96,16 @@ namespace store_management.frontend.forms
             // 
             // cb_type
             // 
+            this.cb_type.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_type.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_type.FormattingEnabled = true;
+            this.cb_type.Items.AddRange(new object[] {
+            "Androids",
+            "Drones",
+            "Exoskeletons",
+            "Space Guns",
+            "Warp Drive",
+            "None"});
             this.cb_type.Location = new System.Drawing.Point(233, 73);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(129, 21);

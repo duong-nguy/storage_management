@@ -16,7 +16,6 @@ namespace store_management
         public Form_menu()
         {
             InitializeComponent();
-            backend.Database.database_init();
         }
 
         private void btn_add_new_product_Click(object sender, EventArgs e)

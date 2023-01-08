@@ -49,7 +49,8 @@ namespace store_management.backend
             {
                 Directory.CreateDirectory(@"./database");
                 Directory.CreateDirectory(@"./database/images");
-                File.Create(@"./database/data");
+                File.Create(@"./database/data.txt").Close();
+                
             }
             load_up();
         }
@@ -64,30 +65,58 @@ namespace store_management.backend
             
         }
 
-        static public List<PRODUCT> search(string keywords, Product_types type, Search search)
+        static public List<PRODUCT> search(
+            string keywords, Search search,
+            Product_types type = Product_types.null_value)
         {
-
             List<PRODUCT> res = new List<PRODUCT>();
-            if (search == Search.by_id)
+            if (search == Search.by_id && database.ContainsKey(keywords))
             {
                 res.Add(database[keywords]);
                 return res;
             }
+            keywords = Utility.make_usable_string(keywords);
             foreach (KeyValuePair<string, PRODUCT> keyValue in database)
             {
-                if (keyValue.Value.type == type)
+                if (type == Product_types.null_value)
                 {
-                    if (search == Search.by_manufacturer)
+                    switch (search)
                     {
-                        if (keyValue.Value.manufacturer.ToString() == keywords)
-                            res.Add(keyValue.Value);
-                    }
-                    else
-                    {
-                        if (keyValue.Value.model == keywords)
-                            res.Add(keyValue.Value);
+                        case Search.by_model:
+                            if (keyValue.Value.model
+                                == keywords)
+                                res.Add(keyValue.Value);
+                            break;
+                        case Search.by_manufacturer:
+                            if (keyValue.Value.manufacturer.ToString()
+                                == keywords)
+                                res.Add(keyValue.Value);
+                            break;
                     }
                 }
+                else
+                {
+                    if (keyValue.Value.type == type)
+                    {
+                        switch (search)
+                        {
+                            case Search.by_model:
+                                if (keyValue.Value.model
+                                    == keywords)
+                                    res.Add(keyValue.Value);
+                                break;
+                            case Search.by_manufacturer:
+                                if (keyValue.Value.manufacturer.ToString()
+                                    == keywords)
+                                    res.Add(keyValue.Value);
+                                break;
+                            default:
+                                res.Add(keyValue.Value);
+                                break;
+                        }
+                    }
+                }
+                
             }
             return res;
         }
@@ -102,33 +131,35 @@ namespace store_management.backend
 
         private static void save_product(PRODUCT PRODUCT, Image image)
         {
+            image.Save($@"./database/images/{PRODUCT.id}.jpg");
             FileStream fs = new FileStream(
-                @"./database/data",
+                @"./database/data.txt",
                 FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine(PRODUCT.ToString());
             sw.Close();
             fs.Close();
-            image.Save($@"./database/images/{PRODUCT.id}.jpg");
+
             
         }
         private static void remove_from_drive(string id)
         {
-            List<string> file = File.ReadAllLines(@"./database/data").ToList();
+            List<string> file = File.ReadAllLines(@"./database/data.txt").ToList();
             string remove = "";
             foreach (string line in file)
             {
                 remove = line.Split(',')[0] == id ? line : "";
             }
             file.Remove(remove);
+            
             File.Delete($@"./database/images/{id}.jpg");
-            File.WriteAllLines(@"./database/data", file.ToArray());
+            File.WriteAllLines(@"./database/data.txt", file.ToArray());
             
         }
         private static void load_up()
         {
             FileStream fs = new FileStream(
-            @"./database/data",
+            @"./database/data.txt",
             FileMode.Open, FileAccess.ReadWrite
             );
             StreamReader sr = new StreamReader(fs);

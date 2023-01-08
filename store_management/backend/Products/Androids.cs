@@ -11,7 +11,7 @@ namespace store_management.backend.Products
     {
         public Androids(string id,
             Product_types type, Manufacturers manufacturer,
-            string model, int quantity, string job,
+            string model, int quantity, string occupation,
             int bust,int weist, int hip)
         {
             this.id = id;
@@ -20,7 +20,7 @@ namespace store_management.backend.Products
             this.model = model;
             this.quantity = quantity;
 
-            this.job = job;
+            this.occupation = occupation;
             this.bust = bust;
             this.weist = weist;
             this.hip = hip;
@@ -43,7 +43,7 @@ namespace store_management.backend.Products
             get;
         }
         
-        public string job
+        public string occupation
         {
             get;
         }
@@ -65,11 +65,13 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> full_description = new Dictionary<string, string>();
             full_description.Add("Id", id);
+            full_description.Add("Type",
+               Utility.make_pretty_string(type.ToString()));
+            full_description.Add("Manufacturer",
+                Utility.make_pretty_string(manufacturer.ToString()));
             full_description.Add("Model", model);
             full_description.Add("Quantity", quantity.ToString());
-            full_description.Add("Type", type.ToString());
-            full_description.Add("Manufacturer", manufacturer.ToString());
-            full_description.Add("Job", job);
+            full_description.Add("Occupation", occupation);
             full_description.Add("Bust", bust.ToString());
             full_description.Add("Weist", weist.ToString());
             full_description.Add("Hip", hip.ToString());
@@ -79,7 +81,7 @@ namespace store_management.backend.Products
         public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
-            properties.Add("Job", "string");
+            properties.Add("Occupation", "string");
             properties.Add("Bust", "int");
             properties.Add("Weist", "int");
             properties.Add("Hip", "int");
@@ -89,7 +91,7 @@ namespace store_management.backend.Products
         public override string ToString()
         {
             return $"{id},{(int)type},{(int)manufacturer},{model},{quantity}" +
-                $",{job},{bust},{weist}," +
+                $",{occupation},{bust},{weist}," +
                 $"{hip}";
         }
     }

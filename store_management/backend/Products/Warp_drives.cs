@@ -11,9 +11,9 @@ namespace store_management.backend.Products
     {
         public Warp_drives(
             string id, Product_types type, Manufacturers manufacturer,
-            string model, int quantity, string power_by,
-            bool artifictial_blackhole, bool artifictial_whitehole,
-            int wrap_speed)
+            string model, int quantity, string power_by, int wrap_speed,
+            bool artifictial_blackhole, bool artifictial_whitehole
+            )
         {
             this.id = id;
             this.type = type;
@@ -21,9 +21,9 @@ namespace store_management.backend.Products
             this.model = model;
             this.quantity = quantity;
             this.power_by = power_by;
+            this.wrap_speed = wrap_speed;
             this.artifictial_blackhole = artifictial_blackhole;
             this.artifictial_whitehole = artifictial_whitehole;
-            this.wrap_speed = wrap_speed;
         }
         public override string id { get; }
 
@@ -53,31 +53,35 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> full_description = new Dictionary<string, string>();
             full_description.Add("Id", id);
-            full_description.Add("Type", type.ToString());
-            full_description.Add("Manufacturer", manufacturer.ToString());
+            full_description.Add("Type",
+               Utility.make_pretty_string(type.ToString()));
+            full_description.Add("Manufacturer",
+                Utility.make_pretty_string(manufacturer.ToString()));
             full_description.Add("Model", model);
             full_description.Add("Quantity", quantity.ToString());
             full_description.Add("Power with", power_by.ToString());
+            full_description.Add("Wrap speed", wrap_speed.ToString());
             full_description.Add("Artifictial blackhole", artifictial_blackhole.ToString());
             full_description.Add("Artifictial whitehole", artifictial_whitehole.ToString());
-            full_description.Add("Wrap speed", wrap_speed.ToString());
             return full_description;
         }
 
+            
+        
         public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("Power with", "string");
+            properties.Add("Wrap speed", "int");
             properties.Add("Artifictial blackhole", "bool");
             properties.Add("Artifictial whitehole", "bool");
-            properties.Add("Wrap speed", "int");
             return properties;
         }
         public override string ToString()
         {
             return $"{id},{(int)type},{(int)manufacturer},{model},{quantity}" +
-                $",{power_by},{artifictial_blackhole},{artifictial_whitehole}," +
-                $"{wrap_speed}";
+                $",{power_by},{wrap_speed},{artifictial_blackhole}," +
+                $"{artifictial_whitehole}";
         }
     }
 }

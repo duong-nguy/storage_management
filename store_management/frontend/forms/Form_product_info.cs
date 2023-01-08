@@ -21,8 +21,7 @@ namespace store_management.frontend.forms
         {
             InitializeComponent();
             CancelButton = btn_cancel;
-            
-            
+            image = null;
         }
          private void btn_add_Click(object sender, EventArgs e)
         {
@@ -31,23 +30,44 @@ namespace store_management.frontend.forms
             {
                 if (control.Name.Contains("fields"))
                 {
-                    if (control.Name.Contains("tb"))//check empty 
+                    if (control.Name.Contains("tb"))
                     {
                         TextBox textBox =(TextBox) control;
+                        if( Input_valid.validation(textBox)==
+                            enums.Validation_result.No)
+                        {
+                            MessageBox.Show("Please fill in all information");
+                            return;
+                        }
                         fields.Add(textBox.Text);
                     }
-                    else if (control.Name.Contains("cb"))//not yet implement
+                    else if (control.Name.Contains("cb"))
                     {
                         CheckBox check = (CheckBox)control;
                         fields.Add(check.Checked.ToString());
                     }
+
                     else if (control.Name.Contains("nb"))
                     {
                         NumericUpDown num = (NumericUpDown)control;
+                        if (Input_valid.validation(num) ==
+                            enums.Validation_result.No)
+                        {
+                            MessageBox.Show("Please enter a valid number");
+                            return;
+                        }
+
                         fields.Add(num.Value.ToString());
                     }
                 }
             }
+            if (Input_valid.validation(image) ==
+                            enums.Validation_result.No)
+            {
+                MessageBox.Show("Please Upload an image");
+                return;
+            }
+
             backend.Database.add_product(type, manufacturer, model
                 ,quanity,image,fields.ToArray());
             Close();
@@ -70,8 +90,9 @@ namespace store_management.frontend.forms
             int x_step = groupBox1.Width * 1 / 5;
             int x = groupBox1.Width * 1 / 10;
             int y = y_step;
-            lb_product_type.Text = type.ToString();
-            groupBox1.Text = $"{type} infomation";
+            lb_product_type.Text = Utility.make_pretty_string(type.ToString());
+            groupBox1.Text = 
+                $"{Utility.make_pretty_string(type.ToString())} infomation";
             
             foreach (KeyValuePair<string,string> keyValue in product_properties)
             {

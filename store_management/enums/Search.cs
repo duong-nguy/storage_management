@@ -8,6 +8,6 @@ namespace store_management.enums
 {
     enum Search
     {
-        by_model,by_id,by_manufacturer
+       null_value, by_model,by_id,by_manufacturer
     }
 }
