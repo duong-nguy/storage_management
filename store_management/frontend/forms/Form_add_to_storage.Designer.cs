@@ -58,6 +58,8 @@ namespace store_management.frontend.forms
             // 
             // cbox_product_to_add
             // 
+            this.cbox_product_to_add.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbox_product_to_add.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbox_product_to_add.FormattingEnabled = true;
             this.cbox_product_to_add.Items.AddRange(new object[] {
             "Androids",
@@ -127,6 +129,8 @@ namespace store_management.frontend.forms
             // 
             // cb_manufacturer
             // 
+            this.cb_manufacturer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_manufacturer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_manufacturer.FormattingEnabled = true;
             this.cb_manufacturer.Items.AddRange(new object[] {
             "Stark Industry",

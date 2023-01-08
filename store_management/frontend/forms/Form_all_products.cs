@@ -112,6 +112,7 @@ namespace store_management.frontend.forms
             if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
             backend.Database.delete_product(search_result[index].id);
             search_result.Remove(search_result[index]);
+            index = index == search_result.Count() ? index-1 : index;
             render_product();
         }
 
