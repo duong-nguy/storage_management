@@ -35,12 +35,18 @@ namespace store_management.frontend.forms
                  backend.Database.get_product_properties(
                  (enums.Product_types)cbox_product_to_add.SelectedIndex);
             Form_product_info form = new Form_product_info();
-            form.show_dialog(
+            string res = form.show_dialog(
                  product_type_properties,
                 cbox_product_to_add.SelectedIndex,
                 cb_manufacturer.SelectedIndex,
                 (int)nbox_quanity.Value,
                 tb_model.Text);
+            if (res == string.Empty) return;
+            lb_history.Text = $"Product: {res} added";
+            nbox_quanity.Value = 0;
+            tb_model.Text = "";
+            cbox_product_to_add.SelectedIndex = -1;
+            cb_manufacturer.SelectedIndex = -1;
         }
         private enums.Validation_result check_controls()
         {

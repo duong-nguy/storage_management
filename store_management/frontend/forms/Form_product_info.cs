@@ -16,12 +16,13 @@ namespace store_management.frontend.forms
         int quanity;
         enums.Product_types type;
         enums.Manufacturers manufacturer;
-        string model;
+        string model, id;
         public Form_product_info()
         {
             InitializeComponent();
             CancelButton = btn_cancel;
-            image = null;
+            image = picb.BackgroundImage;
+            id = string.Empty;
         }
          private void btn_add_Click(object sender, EventArgs e)
         {
@@ -68,11 +69,11 @@ namespace store_management.frontend.forms
                 return;
             }
 
-            backend.Database.add_product(type, manufacturer, model
+            id = backend.Database.add_product(type, manufacturer, model
                 ,quanity,image,fields.ToArray());
             Close();
         }
-        public void show_dialog(
+        public string show_dialog(
             Dictionary<string, string> product_properties,
             int type, int manufacturer, int quantity, string model)
         {
@@ -82,6 +83,8 @@ namespace store_management.frontend.forms
             this.model = model;
             lable_init(product_properties);
             ShowDialog();
+            return id;
+
         }
         private void lable_init(
             Dictionary<string, string> product_properties)

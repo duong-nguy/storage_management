@@ -42,6 +42,7 @@ namespace store_management.frontend.forms
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_add_product = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lb_history = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nbox_quanity)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +146,7 @@ namespace store_management.frontend.forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lb_history);
             this.groupBox1.Controls.Add(this.cb_manufacturer);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -197,6 +199,14 @@ namespace store_management.frontend.forms
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lb_history
+            // 
+            this.lb_history.AutoSize = true;
+            this.lb_history.Location = new System.Drawing.Point(267, 230);
+            this.lb_history.Name = "lb_history";
+            this.lb_history.Size = new System.Drawing.Size(0, 13);
+            this.lb_history.TabIndex = 13;
+            // 
             // Form_add_product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,5 +244,6 @@ namespace store_management.frontend.forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cb_manufacturer;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lb_history;
     }
 }

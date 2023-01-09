@@ -5,14 +5,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-
 namespace store_management.backend
 {
     static class Database
     {
         static Dictionary<string, PRODUCT> database;
         static Random random;
-        static public void add_product(
+        static public string add_product(
             Product_types type,
             Manufacturers manufacturer,
             string model,
@@ -24,6 +23,7 @@ namespace store_management.backend
             PRODUCT product = Product_factory.create_product(id, type, manufacturer, model, quantity, args);
             database.Add(id, product);
             save_product(product, image);
+            return id;
         }
 
         static public string create_id(
@@ -126,7 +126,19 @@ namespace store_management.backend
         }
         static public Image get_image(string id)
         {
-            return Image.FromFile($@"./database/images/{id}.jpg");
+            Image image = null;
+            try
+            {
+                image = Image.FromFile($@"./database/images/{id}.jpg");
+
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
+            return image;
         }
 
         private static void save_product(PRODUCT PRODUCT, Image image)
@@ -148,13 +160,13 @@ namespace store_management.backend
             string remove = "";
             foreach (string line in file)
             {
-                remove = line.Split(',')[0] == id ? line : "";
+                remove = line.Split(',')[0] == id ? line : remove;
             }
             file.Remove(remove);
-            
+            File.WriteAllLines(@"./database/data.txt", file);
             File.Delete($@"./database/images/{id}.jpg");
-            File.WriteAllLines(@"./database/data.txt", file.ToArray());
-            
+
+
         }
         private static void load_up()
         {

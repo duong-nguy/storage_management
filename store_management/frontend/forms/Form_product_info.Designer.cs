@@ -31,9 +31,9 @@ namespace store_management.frontend.forms
         {
             this.lb_product_type = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.picb = new System.Windows.Forms.PictureBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
-            this.picb = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -60,6 +60,22 @@ namespace store_management.frontend.forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "[product] Information";
             // 
+            // picb
+            // 
+            this.picb.BackgroundImage = global::store_management.Properties.Resources.pic_upload;
+            this.picb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picb.ErrorImage = global::store_management.Properties.Resources.close_window;
+            this.picb.InitialImage = global::store_management.Properties.Resources.pic_upload;
+            this.picb.Location = new System.Drawing.Point(298, 19);
+            this.picb.Name = "picb";
+            this.picb.Size = new System.Drawing.Size(136, 196);
+            this.picb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picb.TabIndex = 1;
+            this.picb.TabStop = false;
+            this.picb.Click += new System.EventHandler(this.picb_Click);
+            // 
             // btn_cancel
             // 
             this.btn_cancel.BackgroundImage = global::store_management.Properties.Resources.exit;
@@ -82,22 +98,6 @@ namespace store_management.frontend.forms
             this.btn_add.TabIndex = 8;
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // picb
-            // 
-            this.picb.BackgroundImage = global::store_management.Properties.Resources.pic_upload;
-            this.picb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picb.ErrorImage = global::store_management.Properties.Resources.close_window;
-            this.picb.InitialImage = global::store_management.Properties.Resources.pic_upload;
-            this.picb.Location = new System.Drawing.Point(324, 19);
-            this.picb.Name = "picb";
-            this.picb.Size = new System.Drawing.Size(110, 149);
-            this.picb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picb.TabIndex = 1;
-            this.picb.TabStop = false;
-            this.picb.Click += new System.EventHandler(this.picb_Click);
             // 
             // openFileDialog1
             // 
