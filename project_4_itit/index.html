@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy AI </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Hand wrting prediction</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gol.html">Home</a>
+    </nav>
+        <h2 id="h1"> Loading model</h2>
+        
+        <canvas id="canvas-drawing" width="400" height="400"> </canvas>
+
+        <canvas id="canvas-predict" width="400" height="400"></canvas>
+        <br>
+        <input type="button" value="Clear" id="clear-button">
+
+    <!-- Import TensorFlow.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js" type="text/javascript"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

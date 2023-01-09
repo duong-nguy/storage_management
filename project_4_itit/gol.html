@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy AI </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Cellular automata</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gol.html">Home</a>
+    </nav>
+    <div class="card">
+    <table>
+    <tr>
+        <th>
+            <form>
+            <fieldset>
+                <legend>Set up</legend>
+            <label for="sel-rules" >Neighborhoods</label>
+            <select id = "sel-rules">
+                <option value="moore">Moore neighborhood</option>
+                <option value="VN">Von Neumann neighborhood</option>
+            </select>  
+            <label for="radius">Radius</label>
+            <input type="number" id="num-radius" min="0" max="10" value ="1">
+            <label for="num-init-cells">Initial cells</label>
+            <input type="number" id="num-init-cells" min="0" value ="2000">
+            <input type="button" id="btn-apply" value="apply">
+            
+        </fieldset>
+        </form>
+        </th>
+        <th>
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <br>
+        </th>
+        <th>
+        <form>
+        <fieldset>
+            <legend>Varibles</legend>
+            <label for="reproduce-slider">Reproduce:</label>
+            <input type="range" id="reproduce-slider" min="0" max="8" value="2" step="1">
+            <label for="dead-slider">Dead:</label>
+            <input type="range" id="dead-slider"min="0" max="8" value="3" step="1">
+            <label for="time-slider">Time step:</label>
+            <input type="range" id="time-slider"min="1" max="1000" value="100" step="10">
+            
+        </fieldset>
+        <input type="button" value="Randomize" id="rand-btn">
+        <input type="button" value="Start" id="start-btn" style="background-color: green; border-radius: 15%;">
+        </form>
+        </th>
+    </tr>
+    </table>
+
+    </div>
+    <script src="gol.js"></script>
+
+</body>
+
+</html>
