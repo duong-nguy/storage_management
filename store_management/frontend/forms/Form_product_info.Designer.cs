@@ -62,6 +62,7 @@ namespace store_management.frontend.forms
             // 
             // picb
             // 
+            this.picb.AccessibleDescription = "";
             this.picb.BackgroundImage = global::store_management.Properties.Resources.pic_upload;
             this.picb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -78,24 +79,28 @@ namespace store_management.frontend.forms
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackgroundImage = global::store_management.Properties.Resources.exit;
             this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.Image = global::store_management.Properties.Resources.exit;
             this.btn_cancel.Location = new System.Drawing.Point(159, 344);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(90, 71);
+            this.btn_cancel.Size = new System.Drawing.Size(95, 88);
             this.btn_cancel.TabIndex = 9;
+            this.btn_cancel.Text = "Exit";
+            this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_cancel.UseVisualStyleBackColor = true;
             // 
             // btn_add
             // 
-            this.btn_add.BackgroundImage = global::store_management.Properties.Resources.add_new;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Image = global::store_management.Properties.Resources.add_new;
             this.btn_add.Location = new System.Drawing.Point(30, 344);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(95, 71);
+            this.btn_add.Size = new System.Drawing.Size(95, 88);
             this.btn_add.TabIndex = 8;
+            this.btn_add.Text = "Add";
+            this.btn_add.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 

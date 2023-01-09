@@ -244,10 +244,13 @@ namespace store_management.frontend.forms
             this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_back.Image = global::store_management.Properties.Resources.exit;
+            this.btn_back.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_back.Location = new System.Drawing.Point(476, 222);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(72, 72);
             this.btn_back.TabIndex = 10;
+            this.btn_back.Text = "Exit";
+            this.btn_back.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_exit_Click);
             // 

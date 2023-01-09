@@ -88,8 +88,10 @@ namespace store_management.frontend.forms
             this.btn_cancel.Image = global::store_management.Properties.Resources.exit;
             this.btn_cancel.Location = new System.Drawing.Point(17, 350);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(86, 68);
+            this.btn_cancel.Size = new System.Drawing.Size(86, 83);
             this.btn_cancel.TabIndex = 2;
+            this.btn_cancel.Text = "Exit";
+            this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_cancel.UseVisualStyleBackColor = true;
             // 
             // button1

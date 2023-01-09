@@ -164,25 +164,29 @@ namespace store_management.frontend.forms
             // 
             // btn_back
             // 
-            this.btn_back.BackgroundImage = global::store_management.Properties.Resources.exit;
             this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.Image = global::store_management.Properties.Resources.exit;
             this.btn_back.Location = new System.Drawing.Point(272, 365);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(91, 86);
             this.btn_back.TabIndex = 6;
+            this.btn_back.Text = "Exit";
+            this.btn_back.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // btn_add_product
             // 
-            this.btn_add_product.BackgroundImage = global::store_management.Properties.Resources.add_new;
             this.btn_add_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_add_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_product.Image = global::store_management.Properties.Resources.add_new;
             this.btn_add_product.Location = new System.Drawing.Point(118, 365);
             this.btn_add_product.Name = "btn_add_product";
             this.btn_add_product.Size = new System.Drawing.Size(84, 86);
             this.btn_add_product.TabIndex = 3;
+            this.btn_add_product.Text = "Continue";
+            this.btn_add_product.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_add_product.UseVisualStyleBackColor = true;
             this.btn_add_product.Click += new System.EventHandler(this.btn_add_product_Click);
             // 
