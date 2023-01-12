@@ -31,6 +31,7 @@ namespace store_management.frontend.forms
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rb_by_nb = new System.Windows.Forms.RadioButton();
             this.cb_type = new System.Windows.Forms.ComboBox();
             this.btn_load_all_products = new System.Windows.Forms.Button();
             this.rb_byid = new System.Windows.Forms.RadioButton();
@@ -77,6 +78,7 @@ namespace store_management.frontend.forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rb_by_nb);
             this.groupBox1.Controls.Add(this.cb_type);
             this.groupBox1.Controls.Add(this.btn_load_all_products);
             this.groupBox1.Controls.Add(this.rb_byid);
@@ -94,6 +96,18 @@ namespace store_management.frontend.forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
             // 
+            // rb_by_nb
+            // 
+            this.rb_by_nb.AutoSize = true;
+            this.rb_by_nb.Location = new System.Drawing.Point(19, 93);
+            this.rb_by_nb.Name = "rb_by_nb";
+            this.rb_by_nb.Size = new System.Drawing.Size(86, 17);
+            this.rb_by_nb.TabIndex = 10;
+            this.rb_by_nb.TabStop = true;
+            this.rb_by_nb.Text = "By Keywords";
+            this.rb_by_nb.UseVisualStyleBackColor = true;
+            this.rb_by_nb.Click += new System.EventHandler(this.rb_by_manufacturer_CheckedChanged);
+            // 
             // cb_type
             // 
             this.cb_type.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -110,6 +124,7 @@ namespace store_management.frontend.forms
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(129, 21);
             this.cb_type.TabIndex = 9;
+            this.cb_type.Text = "None";
             // 
             // btn_load_all_products
             // 
@@ -128,7 +143,7 @@ namespace store_management.frontend.forms
             // rb_byid
             // 
             this.rb_byid.AutoSize = true;
-            this.rb_byid.Location = new System.Drawing.Point(19, 48);
+            this.rb_byid.Location = new System.Drawing.Point(19, 46);
             this.rb_byid.Name = "rb_byid";
             this.rb_byid.Size = new System.Drawing.Size(89, 17);
             this.rb_byid.TabIndex = 8;
@@ -139,7 +154,7 @@ namespace store_management.frontend.forms
             // rb_by_manufacturer
             // 
             this.rb_by_manufacturer.AutoSize = true;
-            this.rb_by_manufacturer.Location = new System.Drawing.Point(19, 73);
+            this.rb_by_manufacturer.Location = new System.Drawing.Point(19, 70);
             this.rb_by_manufacturer.Name = "rb_by_manufacturer";
             this.rb_by_manufacturer.Size = new System.Drawing.Size(103, 17);
             this.rb_by_manufacturer.TabIndex = 7;
@@ -188,7 +203,7 @@ namespace store_management.frontend.forms
             // rb_by_product_model
             // 
             this.rb_by_product_model.AutoSize = true;
-            this.rb_by_product_model.Location = new System.Drawing.Point(19, 25);
+            this.rb_by_product_model.Location = new System.Drawing.Point(19, 24);
             this.rb_by_product_model.Name = "rb_by_product_model";
             this.rb_by_product_model.Size = new System.Drawing.Size(109, 17);
             this.rb_by_product_model.TabIndex = 2;
@@ -495,5 +510,6 @@ namespace store_management.frontend.forms
         private System.Windows.Forms.Label lb_product_type;
         private System.Windows.Forms.ComboBox cb_type;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton rb_by_nb;
     }
 }

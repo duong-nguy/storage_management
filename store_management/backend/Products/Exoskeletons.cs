@@ -86,9 +86,16 @@ namespace store_management.backend.Products
 
         public override string ToString()
         {
-            return $"{id},{(int)type},{(int)manufacturer}, {model}," +
+            return $"{id},{(int)type},{(int)manufacturer},{model}," +
                 $"{quantity},{colour},{material},{buffering},{auto_pilot}";
         }
-        
+
+        public override string get_string_data()
+        {
+            return $"{id},{type},{manufacturer},quantity:{model}," +
+            $"{quantity},colour:{colour},material:{material}," +
+            $"buffering:{buffering},auto_pilot:{auto_pilot}";
+
+        }
     }
 }

@@ -102,10 +102,16 @@ namespace store_management.backend.Products
 
         public override string ToString()
         {
-            return $"{id},{(int)type},{(int)manufacturer}, {model}," +
+            return $"{id},{(int)type},{(int)manufacturer},{model}," +
                 $"{quantity},{roles},{speed},{range},{autonomous}";
         
         }
 
+        public override string get_string_data()
+        {
+            return $"{id},{type},{manufacturer},{model},quantity:{quantity}," +
+                $"roles:{roles},speed:{speed},range:{range},autonomous:{autonomous}";
+
+        }
     }
 }

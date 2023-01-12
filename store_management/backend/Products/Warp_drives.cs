@@ -83,5 +83,13 @@ namespace store_management.backend.Products
                 $",{power_by},{wrap_speed},{artifictial_blackhole}," +
                 $"{artifictial_whitehole}";
         }
+
+        public override string get_string_data()
+        {
+            return $"{id},{type},{manufacturer},{model},quantity:{quantity}" +
+                $",power_by:{power_by},wrap_speed:{wrap_speed}" +
+                $",artifictial_blackhole:{artifictial_blackhole}," +
+                $"artifictial_whitehole:{artifictial_whitehole}";
+        }
     }
 }

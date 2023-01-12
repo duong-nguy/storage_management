@@ -94,5 +94,12 @@ namespace store_management.backend.Products
                 $",{occupation},{bust},{weist}," +
                 $"{hip}";
         }
+        public override string get_string_data()
+        {
+            return $"{id},{type},{manufacturer},{model},quantity:{quantity}" +
+                $",occupation:{occupation},bust:{bust},weist:{weist}," +
+                $"hip:{hip}";
+        }
+
     }
 }

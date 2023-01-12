@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="backend\abstractions\PRODUCT.cs" />
+    <Compile Include="backend\Naive_bayes_classifier.cs" />
     <Compile Include="backend\Products\Androids.cs" />
     <Compile Include="backend\Products\Exoskeletons.cs" />
     <Compile Include="backend\Products\Space_Guns.cs" />

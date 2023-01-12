@@ -15,7 +15,7 @@ namespace store_management.frontend.forms
         public Form_all_products()
         {
             InitializeComponent();
-            search = enums.Search.null_value;
+            search = enums.Search.by_naive_bayes;
             search_result = new List<backend.abstractions.PRODUCT>();
 
         }
@@ -86,6 +86,9 @@ namespace store_management.frontend.forms
                     break;
                 case "By Manufacturer":
                     search = enums.Search.by_manufacturer;
+                    break;
+                case "By Keywords":
+                    search = enums.Search.by_naive_bayes;
                     break;
                 default:
                     break;

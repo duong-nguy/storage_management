@@ -14,6 +14,7 @@ namespace store_management.backend.abstractions
         public abstract string model { get; }
         public abstract int quantity { get; }
         public abstract Dictionary<string, string> full_description();
+        public abstract string get_string_data();
         
     }
 }

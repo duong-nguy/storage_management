@@ -109,9 +109,14 @@ namespace store_management.backend.Products
 
         public override string ToString()
         {
-            return $"{id},{(int)type},{(int)manufacturer}, {model}," +
+            return $"{id},{(int)type},{(int)manufacturer},{model}," +
                 $"{quantity},{damage},{weight},{cost},{rounds}";
         }
-        
+
+        public override string get_string_data()
+        {
+            return $"{id},{type},{manufacturer},{model},quantity:{quantity}," +
+                $"damage:{damage},weight:{weight},cost:{cost},rounds:{rounds}";
+        }
     }
 }
