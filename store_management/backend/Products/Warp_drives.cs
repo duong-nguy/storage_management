@@ -48,8 +48,7 @@ namespace store_management.backend.Products
         public bool artifictial_blackhole { get; }
         public bool artifictial_whitehole { get; }
         public int wrap_speed { get; }
-
-        public override Dictionary<string, string> full_description()
+public override Dictionary<string, string> full_description()
         {
             Dictionary<string, string> full_description = new Dictionary<string, string>();
             full_description.Add("Id", id);
@@ -66,8 +65,6 @@ namespace store_management.backend.Products
             return full_description;
         }
 
-            
-        
         public static Dictionary<string, string> properties()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
@@ -83,13 +80,12 @@ namespace store_management.backend.Products
                 $",{power_by},{wrap_speed},{artifictial_blackhole}," +
                 $"{artifictial_whitehole}";
         }
-
         public override string get_string_data()
         {
-            return $"{id},{type},{manufacturer},{model},quantity:{quantity}" +
-                $",power_by:{power_by},wrap_speed:{wrap_speed}" +
-                $",artifictial_blackhole:{artifictial_blackhole}," +
-                $"artifictial_whitehole:{artifictial_whitehole}";
+            return $"{id},{type},{manufacturer},{model},quantity={quantity}" +
+                $",power_by={power_by},wrap_speed={wrap_speed}" +
+                $",artifictial_blackhole={artifictial_blackhole}," +
+                $"artifictial_whitehole={artifictial_whitehole}";
         }
     }
 }

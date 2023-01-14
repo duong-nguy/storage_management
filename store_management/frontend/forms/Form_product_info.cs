@@ -62,13 +62,6 @@ namespace store_management.frontend.forms
                     }
                 }
             }
-            if (Input_valid.validation(image) ==
-                            enums.Validation_result.No)
-            {
-                MessageBox.Show("Please Upload an image");
-                return;
-            }
-
             id = backend.Database.add_product(type, manufacturer, model
                 ,quanity,image,fields.ToArray());
             Close();
@@ -175,6 +168,7 @@ namespace store_management.frontend.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (picb.Image != null) picb.Image.Dispose();
             Close();
         }
     }

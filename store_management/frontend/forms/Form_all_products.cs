@@ -25,6 +25,7 @@ namespace store_management.frontend.forms
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
+            if(pictureBox1.Image!=null)pictureBox1.Image.Dispose();
             Utility.close_open_form(this, new Form_menu());
         }
 

@@ -53,7 +53,7 @@ namespace store_management.frontend.forms
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(308, 47);
+            this.pictureBox1.Location = new System.Drawing.Point(284, 36);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(136, 196);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -93,6 +93,7 @@ namespace store_management.frontend.forms
             this.btn_cancel.Text = "Exit";
             this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // button1
             // 

@@ -36,5 +36,10 @@ namespace store_management.frontend.forms
         {
             Close();
         }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
+        }
     }
 }

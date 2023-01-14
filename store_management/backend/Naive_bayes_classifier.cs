@@ -1,20 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace store_management.backend
 {
-    class Naive_bayes_classifier
+    class Naive_Bayes_classifier
     {
+        /*
+          Usage: Calculate the probability of a query belong to what objects (Product)
+          nbc.fit generate a look up table of len(products)xlen(set of all words in
+          in data base)
+          nbc.predict calculate the probability of each object belong to the query
+          return objects with the best probability
+          Example let drone {
+                id: 1-1-0000
+                type: drone
+                manufacturer: lnet
+                model: ax-110
+                quantity: 10
+                .....
+            }
+          To find this product there are many ways
+                query = "drone" => return all drones
+                query = "drone lnet" => return all drones made by lnet
+                query = "lnet ax-110" => return all products model ax-110 made by lnet 
+                query = "lnet quantity=10" => return all products made by lnet with
+         10 products in stocks 
+         Because of the "Naive" part of "Naive Bayes" it is necessary to treat
+         "quantity=10" or "speed=10".... as a word to make this work.
+         */
         Dictionary<int, Dictionary<string, double>> nb_scores;
         private string[] get_tokens_of_store_management_database(string[] data)
         {
             List<string> set_of_tokens = new List<string>();
             foreach (string item in data)
             {
-                string[] data_tokens = item.Split(new char[] { ',', '_', ' ' },
+                
+                string[] data_tokens = Utility.make_usable_string(item)
+                    .Split(new char[] { ',', '_', ' ' },
                     StringSplitOptions.RemoveEmptyEntries); ;
                 foreach (string token in data_tokens)
                 {
@@ -23,21 +46,22 @@ namespace store_management.backend
             }
             return set_of_tokens.ToArray();
         }
-        private Dictionary<int,string[]> 
+        private Dictionary<int, string[]>
             store_management_data_preprocessing(string[] data)
         {
             Dictionary<int, string[]> processed_data =
                 new Dictionary<int, string[]>();
             for (int i = 0; i < data.Length; i++)
             {
-                string[] line = data[i].Split(new char[]{',','_',' '},
+                string[] line = Utility.make_usable_string(data[i])
+                    .Split(new char[] { ',', '_', ' ' },
                     StringSplitOptions.RemoveEmptyEntries);
                 processed_data.Add(i, line);
             }
 
             return processed_data;
         }
-        private void model_build(int num_class,string[] data)
+        private void model_build(int num_class, string[] data)
         {
             string[] set_of_tokens = get_tokens_of_store_management_database(data);
             nb_scores = new Dictionary<int, Dictionary<string, double>>();
@@ -47,7 +71,7 @@ namespace store_management.backend
                     new Dictionary<string, double>();
                 foreach (string token in set_of_tokens)
                 {
-                    scores.Add(token, 1/ (double)num_class);
+                    scores.Add(token, 1 / (double)num_class);
                 }
                 nb_scores.Add(i, scores);
             }
@@ -62,13 +86,13 @@ namespace store_management.backend
             new Dictionary<int, Dictionary<string, double>>(nb_scores);
 
             foreach (
-                KeyValuePair<int,Dictionary<string,double>> obj_tokens in _nb_scores)
+                KeyValuePair<int, Dictionary<string, double>> obj_tokens in _nb_scores)
             {
                 Dictionary<string, double> _obj_tokens =
                     new Dictionary<string, double>(obj_tokens.Value);
-                
+
                 foreach (
-                    KeyValuePair<string,double> token_score in _obj_tokens)
+                    KeyValuePair<string, double> token_score in _obj_tokens)
                 {
                     if (processed_data[obj_tokens.Key].Contains(token_score.Key))
                     {
@@ -88,7 +112,7 @@ namespace store_management.backend
             {
                 sum += item;
             }
-            foreach (KeyValuePair<int,double> keyValue in _prediction)
+            foreach (KeyValuePair<int, double> keyValue in _prediction)
             {
                 prediction[keyValue.Key] = prediction[keyValue.Key] / sum * 100;
             }
@@ -98,22 +122,19 @@ namespace store_management.backend
         {
             List<KeyValuePair<int, double>> myList = dict_to_sort.ToList();
 
-            myList.Sort(
-                delegate (KeyValuePair<int, double> pair1,
-                KeyValuePair<int, double> pair2)
-                {
-                    return pair2.Value.CompareTo(pair1.Value);
-                }
-            );
+            double max = 0;
+            foreach (KeyValuePair<int, double> keyValue in myList)
+            {
+                max = keyValue.Value > max ? keyValue.Value : max;
+            }
             List<int> res = new List<int>();
             foreach (KeyValuePair<int, double> keyValue in myList)
             {
-                if(keyValue.Value==myList[0].Value)
-                    res.Add(keyValue.Key);
+                if (keyValue.Value == max) res.Add(keyValue.Key);
             }
             if (res.Count == myList.Count) return new int[0];
             return res.ToArray();
-        } 
+        }
         public int[] predict(string[] query)
         {
 
@@ -129,15 +150,13 @@ namespace store_management.backend
                 foreach (
                     KeyValuePair<string, double> keyValuePair in keyvalue.Value)
                 {
-                    if (query.Contains(keyValuePair.Key))
-                    {
+                    if (query.Contains(keyValuePair.Key)) 
                         prediction[keyvalue.Key] *= keyValuePair.Value;
-                    }
                 }
             }
             prediction = normalization(prediction);
             return sort_dict(prediction);
-            
+
         }
 
     }

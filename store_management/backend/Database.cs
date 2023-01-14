@@ -11,7 +11,7 @@ namespace store_management.backend
     {
         static Dictionary<string, PRODUCT> database;
         static Random random;
-        static Naive_bayes_classifier nb_search;
+        static Naive_Bayes_classifier nb_search;
         static bool model_is_uptodate = false;
         static public string add_product(
             Product_types type,
@@ -49,12 +49,13 @@ namespace store_management.backend
             database = new Dictionary<string, PRODUCT>();
             random = new Random();
             if (!Directory.Exists(@"./database"))
-            {
                 Directory.CreateDirectory(@"./database");
+            
+            if (!Directory.Exists(@"./database/images"))
                 Directory.CreateDirectory(@"./database/images");
+            
+            if (!File.Exists(@"./database/data.txt"))
                 File.Create(@"./database/data.txt").Close();
-
-            }
             load_up();
         }
         static public Dictionary<string, string> get_product_properties(Product_types type)
@@ -81,6 +82,7 @@ namespace store_management.backend
         private static void save_product(PRODUCT PRODUCT, Image image)
         {
             image.Save($@"./database/images/{PRODUCT.id}.jpg");
+            image.Dispose();
             FileStream fs = new FileStream(
                 @"./database/data.txt",
                 FileMode.Append, FileAccess.Write);
@@ -131,7 +133,7 @@ namespace store_management.backend
         private static void train_new_model()
         {
             string[] data = get_train_data();
-            nb_search = new Naive_bayes_classifier();
+            nb_search = new Naive_Bayes_classifier();
             nb_search.fit(data.Length, data);
         }
         private static string[] get_train_data()
@@ -186,7 +188,7 @@ namespace store_management.backend
                     switch (search)
                     {
                         case Search.by_model:
-                            if (keyValue.Value.model
+                            if (Utility.make_usable_string(keyValue.Value.model)
                                 == keywords)
                                 res.Add(keyValue.Value);
                             break;

@@ -12,7 +12,7 @@ namespace store_management.backend.Products
         public Androids(string id,
             Product_types type, Manufacturers manufacturer,
             string model, int quantity, string occupation,
-            int bust,int weist, int hip)
+            int atk,int def, int speed)
         {
             this.id = id;
             this.type = type;
@@ -21,9 +21,9 @@ namespace store_management.backend.Products
             this.quantity = quantity;
 
             this.occupation = occupation;
-            this.bust = bust;
-            this.weist = weist;
-            this.hip = hip;
+            this.atk = atk;
+            this.def = def;
+            this.speed = speed;
         }
 
         public override string id { get; }
@@ -47,15 +47,15 @@ namespace store_management.backend.Products
         {
             get;
         }
-        public int bust
+        public int atk
         {
             get;
         }
-        public int weist
+        public int def
         {
             get;
         }
-        public int hip
+        public int speed
         {
             get;
         }
@@ -72,9 +72,9 @@ namespace store_management.backend.Products
             full_description.Add("Model", model);
             full_description.Add("Quantity", quantity.ToString());
             full_description.Add("Occupation", occupation);
-            full_description.Add("Bust", bust.ToString());
-            full_description.Add("Weist", weist.ToString());
-            full_description.Add("Hip", hip.ToString());
+            full_description.Add("ATK", atk.ToString());
+            full_description.Add("DEF", def.ToString());
+            full_description.Add("Speed", speed.ToString());
             return full_description;
         }
 
@@ -82,23 +82,23 @@ namespace store_management.backend.Products
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("Occupation", "string");
-            properties.Add("Bust", "int");
-            properties.Add("Weist", "int");
-            properties.Add("Hip", "int");
+            properties.Add("ATK", "int");
+            properties.Add("DEF", "int");
+            properties.Add("Speed", "int");
 
             return properties;
         }
         public override string ToString()
         {
             return $"{id},{(int)type},{(int)manufacturer},{model},{quantity}" +
-                $",{occupation},{bust},{weist}," +
-                $"{hip}";
+                $",{occupation},{atk},{def}," +
+                $"{speed}";
         }
         public override string get_string_data()
         {
-            return $"{id},{type},{manufacturer},{model},quantity:{quantity}" +
-                $",occupation:{occupation},bust:{bust},weist:{weist}," +
-                $"hip:{hip}";
+            return $"{id},{type},{manufacturer},{model},quantity={quantity}" +
+                $",occupation={occupation},atk={atk},def={def}," +
+                $"speed={speed}";
         }
 
     }

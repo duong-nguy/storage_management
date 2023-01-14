@@ -28,18 +28,12 @@ namespace store_management.backend.Products
         {
             get;
         }
-        // implementation example it just need to return the id
-        // public override string id { get; }
-        // same as the other
-
-        // when you are here goto enums.Product_types file
         public override Product_types type
         {
             get;
         }
 
-        // when you are here goto enums.Manufacturers file  
-
+        
         public override Manufacturers manufacturer
         {
             get;
@@ -54,7 +48,6 @@ namespace store_management.backend.Products
             get;
         }
 
-        // you can change the name and return type of these field
         public  bool autonomous {
             get;
         }
@@ -109,8 +102,8 @@ namespace store_management.backend.Products
 
         public override string get_string_data()
         {
-            return $"{id},{type},{manufacturer},{model},quantity:{quantity}," +
-                $"roles:{roles},speed:{speed},range:{range},autonomous:{autonomous}";
+            return $"{id},{type},{manufacturer},{model},quantity={quantity}," +
+                $"roles={roles},speed={speed},range={range},autonomous={autonomous}";
 
         }
     }

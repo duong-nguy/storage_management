@@ -115,8 +115,8 @@ namespace store_management.backend.Products
 
         public override string get_string_data()
         {
-            return $"{id},{type},{manufacturer},{model},quantity:{quantity}," +
-                $"damage:{damage},weight:{weight},cost:{cost},rounds:{rounds}";
+            return $"{id},{type},{manufacturer},{model},quantity={quantity}," +
+                $"damage={damage},weight={weight},cost={cost},rounds={rounds}";
         }
     }
 }
