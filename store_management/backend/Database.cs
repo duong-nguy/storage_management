@@ -206,7 +206,7 @@ namespace store_management.backend
                         switch (search)
                         {
                             case Search.by_model:
-                                if (keyValue.Value.model
+                                if (Utility.make_usable_string(keyValue.Value.model)
                                     == keywords)
                                     res.Add(keyValue.Value);
                                 break;
